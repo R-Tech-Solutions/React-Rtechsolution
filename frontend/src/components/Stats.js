@@ -1,83 +1,103 @@
-import React, { useRef, useEffect, useState } from 'react';
-import CountUp from 'react-countup';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import '../styles/Stats.css';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import "../styles/Stats.css";
+import Back from '../assets/videos/Background1.mp4';
 
-function Stats() {
-  const statsRef = useRef(null);
+const Stats = () => {
   const [inView, setInView] = useState(false);
 
+  const stats = [
+    { number: 12, label: "Years Experience", suffix: "+" },
+    { number: 100, label: "Satisfied Customers", suffix: "+" },
+    { number: 10, label: "Google Web Apps Delivered", suffix: "+" },
+    { number: 100, label: "5-Star Reviews", suffix: "+" },
+  ];
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        setInView(entry.isIntersecting);
-      },
-      { threshold: 0.5 } // Trigger when 50% of the section is visible
-    );
+    const handleScroll = () => {
+      const section = document.getElementById("stats-section");
+      const sectionTop = section.getBoundingClientRect().top;
+      const triggerPoint = window.innerHeight * 0.75;
 
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
-    }
-
-    return () => {
-      if (statsRef.current) {
-        observer.unobserve(statsRef.current);
+      if (sectionTop < triggerPoint) {
+        setInView(true);
       }
     };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div className="stats-section" ref={statsRef}>
+    <div id="stats-section" className="stats-section">
       {/* Background Video */}
-      <video autoPlay loop muted className="background-video">
-        <source
-          src="https://videocdn.cdnpk.net/videos/618b9c11-6721-5a67-8f40-7db1788cfa28/horizontal/previews/clear/small.mp4?token=exp=1734062471~hmac=65c94e23753f1c4f3dbc9f4de1c30095f85d255a3a72acc7f3e02647a6d74355"
-          type="video/mp4"
-        />
-      </video>
+      <div className="video-container">
+        <video autoPlay loop muted className="background-video">
+          <source src={Back} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
-      <h2 className='sectionh2' color='white'>Trusted by Many, Proven Results</h2>
-      <div className="stats-container">
-        <div className="stat-item">
-          <div className="stat-icon">
-            <i className="fas fa-briefcase"></i>
-          </div>
-          <div className="stat-number">
-            {inView && <CountUp start={0} end={12} duration={2.5} suffix="+" />}
-          </div>
-          <div className="stat-label">Years Experience</div>
-        </div>
-        <div className="stat-item">
-          <div className="stat-icon">
-            <i className="fas fa-users"></i>
-          </div>
-          <div className="stat-number">
-            {inView && <CountUp start={0} end={100} duration={2.5} suffix="+" />}
-          </div>
-          <div className="stat-label">Satisfied Customers</div>
-        </div>
-        <div className="stat-item">
-          <div className="stat-icon">
-            <i className="fas fa-cogs"></i>
-          </div>
-          <div className="stat-number">
-            {inView && <CountUp start={0} end={10} duration={2.5} suffix="+" />}
-          </div>
-          <div className="stat-label">Google Web Apps Delivered</div>
-        </div>
-        <div className="stat-item">
-          <div className="stat-icon">
-            <i className="fas fa-star"></i>
-          </div>
-          <div className="stat-number">
-            {inView && <CountUp start={0} end={100} duration={2.5} suffix="+" />}
-          </div>
-          <div className="stat-label">5-Star Reviews</div>
+      {/* Stats Content */}
+      <div className="stats-content">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="stats-title"
+        >
+          Trusted by Many, Proven Results
+        </motion.h2>
+        <div className="stats-container">
+          {stats.map((stat, index) => (
+            <motion.div
+              className="stat-item"
+              key={index}
+              whileHover={{ scale: 1.1 }}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+            >
+              <div className="stat-number">
+                {inView && (
+                  <Counter end={stat.number} suffix={stat.suffix} />
+                )}
+              </div>
+              <div className="stat-label">{stat.label}</div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>
   );
-}
+};
+
+const Counter = ({ end, suffix }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const duration = 2000; // 2 seconds
+    const increment = end / (duration / 10);
+
+    const counter = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        clearInterval(counter);
+        start = end;
+      }
+      setCount(Math.floor(start));
+    }, 10);
+
+    return () => clearInterval(counter);
+  }, [end]);
+
+  return (
+    <>
+      {count}
+      {suffix}
+    </>
+  );
+};
 
 export default Stats;

@@ -29,7 +29,7 @@ function App() {
             <>
               <Hero />
               <Services />
-              <Stats />
+              <Stats/>
               <Testimonials/>
               <SatisfiedClients/>
               <FAQ/>
