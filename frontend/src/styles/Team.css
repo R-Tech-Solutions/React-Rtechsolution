@@ -1,0 +1,177 @@
+/* CSS for Team Section */
+@keyframes fadeInRight {
+  0% {
+    transform: translateX(25%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Style for the Management Team */
+.management-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem; /* Increased gap for more space between elements */
+  margin-top: 1rem;
+}
+
+.team-header {
+  margin-bottom: 2rem;
+}
+
+.management-team .team-members {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem; /* Increased gap between team members */
+}
+
+.management-team .member {
+  animation: fadeInRight 0.8s forwards; /* Faster animation */
+  opacity: 0;
+  transform: translateX(50%);
+}
+
+.management-team img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for the icons in management team */
+.management-team .icon {
+  color: #fdfdfd;
+  padding: 6px;
+  border-radius: 50%;
+  font-size: 2rem; /* Increased icon size */
+  border: none; /* Removed border */
+}
+
+/* Style for the Development Team */
+.dev-team .team-members {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 items in a row */
+  gap: 3rem; /* Equal gap between images */
+}
+
+.dev-team .team-members .member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInRight -5s forwards; /* Faster animation */
+  opacity: 0;
+  transform: translateX(50%);
+}
+
+.dev-team img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure the next row starts from the center for development team if there are more than 5 members */
+@media (min-width: 768px) {
+  .dev-team .team-members {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 items in a row */
+  }
+
+  .dev-team .team-members > div:nth-child(5n+1) {
+    justify-self: center; /* Center the first item in each row */
+  }
+
+  .dev-team .team-members > div:nth-child(5n+2) {
+    justify-self: flex-start; /* Align the second item to the left */
+  }
+
+  .dev-team .team-members > div:nth-child(5n+3) {
+    justify-self: center; /* Center the third item */
+  }
+
+  .dev-team .team-members > div:nth-child(5n+4) {
+    justify-self: flex-end; /* Align the fourth item to the right */
+  }
+
+  .dev-team .team-members > div:nth-child(5n+5) {
+    justify-self: center; /* Center the fifth item */
+  }
+}
+
+/* Icons and name styling for the Development team */
+.dev-team .icon {
+  color: white;
+  padding: 6px;
+  border-radius: 50%;
+  font-size: 2rem; /* Increased icon size */
+  border: none; /* Removed border */
+}
+
+.dev-team .member-info {
+  text-align: left;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.dev-team .member-info .position {
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 3px;
+}
+
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .dev-team .team-members {
+    grid-template-columns: repeat(3, 1fr); /* 3 items in a row for mobile */
+    gap: 1.5rem; /* Reduced gap between members */
+  }
+
+  .dev-team img {
+    width: 80px; /* Smaller image size for mobile */
+    height: 80px; /* Smaller image size for mobile */
+  }
+
+  .dev-team .icon {
+    font-size: 1.5rem; /* Smaller icon size for mobile */
+  }
+
+  .dev-team .member-info {
+    padding-left: 5px; /* Reduced padding for mobile */
+  }
+
+  .dev-team .member-info .position {
+    font-size: 0.8rem; /* Smaller font size for positions */
+  }
+}
+
+/* Optional: Adjust for very small devices (e.g., max-width: 480px) */
+@media (max-width: 480px) {
+  .dev-team .team-members {
+    grid-template-columns: repeat(2, 1fr); /* 2 items in a row for very small screens */
+  }
+
+  .dev-team img {
+    width: 60px; /* Further reduced size */
+    height: 60px;
+  }
+
+  .dev-team .icon {
+    font-size: 1.2rem; /* Further reduced icon size */
+  }
+
+  .dev-team .member-info {
+    font-size: 0.7rem; /* Even smaller font size for very small screens */
+  }
+}

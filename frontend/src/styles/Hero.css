@@ -1,0 +1,55 @@
+.hero {
+  padding: 8rem 2rem 4rem;
+  background-color: white;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 3rem;
+  color: #006699;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.sri-lanka-text {
+  background-image: url('../assets/images/sri-lanka-text-bg.png');
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0 4px;
+  display: inline-block;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.get-started-hero {
+  background-color: #006699;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.get-started-hero:hover {
+  background-color: #005580;
+}

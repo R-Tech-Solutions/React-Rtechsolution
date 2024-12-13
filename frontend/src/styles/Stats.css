@@ -1,0 +1,107 @@
+/* Overall section styling */
+.stats-section {
+  position: relative;
+  color: rgb(255, 255, 255);
+  padding: 4rem 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1; /* Keeps video in the background */
+}
+
+/* Title Styling */
+.stats-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+}
+
+.stats-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: white;
+}
+
+/* Stats container */
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+/* Individual stat item */
+.stat-item {
+  z-index: 2;
+  padding: 1.5rem;
+}
+
+/* Icon styling inside the circle */
+/* Adjusting the circle and alignment */
+.stat-icon {
+  width: 100px; /* Increased size */
+  height: 100px; /* Increased size */
+  border: 1px dotted white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 5rem;
+  transition: all 0.3s ease;
+}
+
+.stat-icon i {
+  font-size: 2.5rem; 
+  color: white;
+  transition: color 0.3s ease;
+}
+
+
+.stat-icon:hover {
+  background-color: white;
+}
+
+.stat-icon:hover i {
+  color: #005880;
+}
+
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+
+  .stat-label {
+    font-size: 1rem;
+  }
+}
