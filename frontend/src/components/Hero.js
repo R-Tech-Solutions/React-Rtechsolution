@@ -86,11 +86,12 @@ const HeroContent = () => {
       className="lg:max-w-xl"
     >
       <motion.h1
-        className="text-5xl md:text-6xl font-bold mb-2 text-[#005880]"
+      
+        className="text-2xl md:text-5xl font-bold mb-0 text-[#005880]"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8 }}
-      >
+      ><br/><br/><br/>
         Future of Mobile,Web,POS
 
         <motion.span
@@ -226,15 +227,16 @@ const Features = () => {
       title: "User-Centered Design",
       description: "Designed with user experience as the primary focus."
     },
-    {
+    {  
       icon: <FiShield className="w-8 h-8" />,
       title: "Secure Systems",
       description: "Ensuring security and reliability for your applications."
     }
   ];
+  
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-0">
       {features.map((feature, index) => (
         <motion.div
           key={index}
@@ -257,7 +259,7 @@ const Features = () => {
 };
 
 const Hero = () => {
-  return (
+  return (  
     <section className="relative h-screen flex flex-col-reverse lg:flex-row items-center justify-center px-8 lg:px-16">
       <div className="z-10">
         <HeroContent />
