@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../styles/pages/Services.css';
-import Hero from '../Hero';
 import SatisfiedClients from '../SatisfiedClients'
 import Footer from '../Footer'
 import Team from '../Team'

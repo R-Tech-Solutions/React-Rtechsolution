@@ -24,21 +24,6 @@ const Getstarted = () => {
       'network': ['INDOOR', 'OUTDOOR']
   };
 
-  const typeWriter = (text, element, speed = 100) => {
-      let i = 0;
-      element.textContent = '';
-      
-      function type() {
-          if (i < text.length) {
-              element.textContent += text.charAt(i);
-              i++;
-              setTimeout(type, speed);
-          }
-      }
-
-      type();
-  };
-
   const handleServiceClick = (serviceId) => {
       setSelectedService(serviceId);
       setSelectedPlatform(null);
