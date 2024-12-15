@@ -1,10 +1,10 @@
 module.exports = {
-    theme: {
-      extend: {
-        backgroundImage: {
-          'dotted-pattern': "radial-gradient(circle, gray 1px, transparent 1px)",
-        },
-      },
-    },
-  };
-  
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx,html}", // Adjust paths based on your project structure
+    "./public/index.html"
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
