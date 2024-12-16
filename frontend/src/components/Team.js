@@ -10,13 +10,14 @@ const Team = () => {
   useEffect(() => {
     const fetchTeams = async () => {
       try {
-        // Fetch Management Team API
-        const managementResponse = await fetch('http://localhost:3001/api/team?teamType=management');
+        const managementResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/team?teamType=management`);
         const managementData = await managementResponse.json();
+       
 
         // Fetch Development Team API
-        const developmentResponse = await fetch('http://localhost:3001/api/team?teamType=development');
+        const developmentResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/team?teamType=development`);
         const developmentData = await developmentResponse.json();
+        
 
         setManagementTeam(managementData);
         setDevelopmentTeam(developmentData);
@@ -43,11 +44,12 @@ const Team = () => {
         <div className="team-members">
           {managementTeam.map((member, index) => (
             <div key={member._id} className={`member animate__animated animate__fadeInRight animate__delay-${index + 1}s`}>
-              <img
-                src={member.image ? `http://localhost:3001${member.image}` : 'images/default-avatar.png'}
-                alt={member.name}
-                className="aspect-square rounded-full bg-white/20"
-              />
+<img
+  src={member.image ? `${process.env.REACT_APP_API_URL}${member.image}` : 'images/default-avatar.png'}
+  alt={member.name}
+  className="aspect-square rounded-full bg-white/20"
+/>
+
               <div className="member-info">
                 <div className="flex items-center">
                   <FaUser className="icon text-4xl text-[#005880] p-2 rounded-full mr-2" />
@@ -69,11 +71,12 @@ const Team = () => {
         <div className="team-members">
           {developmentTeam.map((member, index) => (
             <div key={member._id} className={`member animate__animated animate__fadeInRight animate__delay-${index + 1}s`}>
-              <img
-                src={member.image ? `http://localhost:3001${member.image}` : 'images/default-avatar.png'}
-                alt={member.name}
-                className="aspect-square rounded-full bg-white/20"
-              />
+<img
+  src={member.image ? `${process.env.REACT_APP_API_URL}${member.image}` : 'images/default-avatar.png'}
+  alt={member.name}
+  className="aspect-square rounded-full bg-white/20"
+/>
+
               <div className="member-info">
                 <div className="flex items-center">
                   <FaUser className="icon text-4xl text-[#005880] p-2 rounded-full mr-2" />

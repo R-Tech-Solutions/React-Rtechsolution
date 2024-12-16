@@ -9,9 +9,10 @@ const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [isHovered, setIsHovered] = useState(false);
 
+  // Fetch testimonials data from the API
   const fetchTestimonials = async () => {
     try {
-      const response = await fetch("http://localhost:3001/api/testimonials");
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/testimonials`);
       const data = await response.json();
       setTestimonials(data);
     } catch (error) {
@@ -27,6 +28,7 @@ const Testimonials = () => {
     setIsHovered(status);
   };
 
+  // Pause marquee if there are less than 3 testimonials or if it's hovered
   const shouldPauseMarquee = testimonials.length <= 3 || isHovered;
 
   return (
@@ -72,9 +74,9 @@ const Testimonials = () => {
                 {/* Image on the left */}
                 <div className="client-image-container">
                   <img 
-                    src={`http://localhost:3001${testimonial.image}`} 
+                    src={testimonial.image ? `${process.env.REACT_APP_API_URL}${testimonial.image}` : 'images/default-avatar.png'} 
                     alt={testimonial.name} 
-                    className={`client-logo`}
+                    className="client-logo"
                   />
                 </div>
                 {/* Name, Role, and Icons on the right */}

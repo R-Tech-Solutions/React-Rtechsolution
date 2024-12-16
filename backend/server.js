@@ -28,8 +28,8 @@ const teamRoutes = require('./routes/teamRoutes');
 const satisfiedClientsRouter = require('./routes/satisfiedClientRoutes');
 
 
-app.use('/send-email', emailRoutes);
-app.use('/form-email', formRoutes);
+app.use('/api/send-email', emailRoutes);
+app.use('/api/form-email', formRoutes);
 app.use('/api', testimonialRoutes);
 app.use('/api/team', teamRoutes);
 app.use('/api/satisfiedclients', satisfiedClientsRouter);
