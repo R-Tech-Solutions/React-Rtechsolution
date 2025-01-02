@@ -1,8 +1,11 @@
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
+const Testimonial = require('../models/Testimonial');
+const { unlink } = require('fs/promises');
 
 
+// make directory 
 const testimonialsDir = path.join(__dirname, '../uploads/testimonials');
 if (!fs.existsSync(testimonialsDir)) {
   fs.mkdirSync(testimonialsDir, { recursive: true });
@@ -24,6 +27,7 @@ if (!fs.existsSync(satisfiedClientsDir)) {
   fs.mkdirSync(satisfiedClientsDir, { recursive: true });
 }
 
+// saving to the folder 
 const testimonialsStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, testimonialsDir);
@@ -32,8 +36,6 @@ const testimonialsStorage = multer.diskStorage({
     cb(null, `${Date.now()}-${file.originalname}`);
   },
 });
-
-
 
 const teamStorage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -64,13 +66,16 @@ const satisfiedClientsStorage = multer.diskStorage({
 });
 
 
+
+// filter
 const fileFilter = (req, file, cb) => {
   if (file.mimetype.startsWith('image/')) {
     cb(null, true);
   } else {
-    cb(new Error('Only image files are allowed'), false);
+    cb(new Error('Invalid file type. Only image files are allowed!'), false);
   }
 };
+
 
 // Multer instances
 const upload = multer({ storage: testimonialsStorage, fileFilter });
@@ -78,7 +83,7 @@ const uploadTeam = multer({ storage: teamStorage, fileFilter });
 const uploadSatisfiedClients = multer({ storage: satisfiedClientsStorage, fileFilter });
 
 module.exports = {
-  upload,
+  upload, // Ensure `upload` is being exported
   uploadTeam,
   uploadSatisfiedClients,
 };

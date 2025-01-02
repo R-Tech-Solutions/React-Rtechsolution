@@ -1,57 +1,50 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import '../styles/Services.css';
-import App from '../assets/images/app-dev.png';
-import Web from '../assets/images/web-dev.png';
-import Pos from '../assets/images/pos.png';
+import React from 'react';
 
-function Appcontent() {
-  return (
-<div className="services-section">
-      
-      <div className="services-grid">
-      <Link to="" className="service-card" style={{ display: 'block', textAlign: 'center' }}>
-      <img
-        src={App}
-         alt="App Development"
-         className="imageApp"
-        style={{
-         width: '100%', // Make the image fit the width of the card
-          height: '80%', // Maintain aspect ratio
-           objectFit: 'cover', // Ensure the image fills the container proportionally
-            borderRadius: '8px', // Optional: Add rounded corners
-          }}
-           />
-         <h3>Ios App</h3>
-        </Link>
-
-        
-        <Link to="" className="service-card" style={{ display: 'block', textAlign: 'center' }}>
-          <img src={Web} alt="Web Development" className="imageApp"
-          style={{
-            width: '100%', 
-             height: '80%', 
-              objectFit: 'cover',
-               borderRadius: '8px', 
-             }}
-          />
-          
-          <h3>Android Development</h3>
-        </Link>
-        
-        <Link to="" className="service-card" style={{ display: 'block', textAlign: 'center' }}>
-          <img src={Pos} alt="POS System" className="imageApp"
-          style={{
-            width: '100%', 
-             height: '80%', 
-              objectFit: 'cover',
-               borderRadius: '8px', 
-             }} />
-          <h3>Cross Platform Development</h3>
-        </Link>
-      </div>
-    </div>
-  )
+function ServiceCard({ title }) {
+  return React.createElement(
+    'div',
+    {
+      className: 'service-card bg-white shadow-md hover:shadow-lg rounded-md overflow-hidden transition-shadow duration-300 h-full flex flex-col'
+    },
+    React.createElement('div', {
+      className: 'w-full h-48 sm:h-56 md:h-64 lg:h-72 bg-gray-300 flex items-center justify-center'
+    }, 
+    React.createElement('span', { className: 'text-gray-600' }, 'Image Placeholder')
+    ),
+    React.createElement(
+      'div',
+      { className: 'p-4 flex-grow flex items-center justify-center' },
+      React.createElement(
+        'h3',
+        { className: 'text-lg font-semibold text-gray-800 text-center' },
+        title
+      )
+    )
+  );
 }
 
-export default Appcontent
+function AppContent() {
+  const services = [
+    { title: 'iOS App Development' },
+    { title: 'Android Development' },
+    { title: 'Cross-Platform Development' }
+  ];
+
+  return React.createElement(
+    'div',
+    { className: 'min-h-screen bg-gray-100 px-4 py-8 flex items-center justify-center' },
+    React.createElement(
+      'div',
+      { className: 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl' },
+      services.map((service, index) =>
+        React.createElement(ServiceCard, {
+          key: index,
+          title: service.title
+        })
+      )
+    )
+  );
+}
+
+export default AppContent;
+

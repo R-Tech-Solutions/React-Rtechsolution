@@ -1,205 +1,214 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Swal from 'sweetalert2';
-import 'react-phone-number-input/style.css';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import PhoneInput from 'react-phone-number-input';
-import '../styles/Contact.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import 'react-phone-number-input/style.css';
+import Swal from 'sweetalert2';
+import 'tailwindcss/tailwind.css';
+import { backEndURL } from "../Backendurl";
 
 const ContactUs = () => {
-  const [firstName, setFirstName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [showMap, setShowMap] = useState(false);
-
-  const contactFormRef = useRef(null);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    phone: '',
+    email: '',
+    message: '',
+  });
+  const [showMap, setShowMap] = useState(false); // Map visibility state
+  const [isMobile, setIsMobile] = useState(false); // Device type check
 
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    // Check if the device is mobile (screen width < 768px)
+    if (window.innerWidth <= 768) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
   }, []);
 
-  const handlePhoneChange = (value) => {
-    setPhone(value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleReset = () => {
-    setFirstName('');
-    setPhone('');
-    setEmail('');
-    setMessage('');
+  const handlePhoneChange = (value) => {
+    setFormData({ ...formData, phone: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Check if phone number is valid
-    if (!phone || phone.length < 10) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Invalid Phone Number',
-        text: 'Please enter a valid phone number.',
-      });
-      return;
-    }
-
     Swal.fire({
       title: 'Submitting...',
       text: 'Please wait while we process your request.',
       allowOutsideClick: false,
       showConfirmButton: false,
-      html: `
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-          <img src="/images/loading.gif" alt="Loading..." style="width: 100px; height: 100px; margin-bottom: 10px;" />
-          <p>Processing your request...</p>
-        </div>
-      `,
+      didOpen: () => {
+        Swal.showLoading();
+      },
     });
 
-    const formData = {
-      firstName,
-      contactNumber: phone,
-      email,
-      message,
-    };
-
     try {
-      const response = await fetch('http://localhost:3001/send-email', {
+      const response = await fetch(`${backEndURL}/api/contact`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
       const result = await response.json();
-
       if (result.success) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Success!',
-          text: 'Form submitted successfully!',
-        }).then(() => {
-          handleReset(); // Clear the form fields after success
-        });
+        Swal.fire('Success!', 'Form submitted successfully!', 'success');
+        setFormData({ firstName: '', phone: '', email: '', message: '' });
       } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Submission Failed',
-          text: 'Failed to send message. Please try again later.',
-        });
+        Swal.fire('Error', 'Failed to send message. Try again.', 'error');
       }
     } catch (error) {
-      console.error('Error:', error);
-      Swal.fire({
-        icon: 'error',
-        title: 'Error Occurred',
-        text: 'An error occurred. Please try again.',
-      });
+      Swal.fire('Error', 'An error occurred. Try again later.', 'error');
     }
   };
 
-  const toggleMap = () => {
-    setShowMap((prevState) => !prevState);
+  const handleAddressClick = () => {
+    setShowMap((prevShowMap) => !prevShowMap);
   };
 
   return (
-    <section
-      className="py-16 px-8 lg:px-24 text-[#005880] bg-white"
-      style={{ boxShadow: '0 4px 6px rgb(0, 0, 0), 0 1px 3px rgb(4, 4, 4)' }}
-    >
-      <h2 className="text-center text-5xl font-bold mb-10">Contact Us</h2>
-      <div className="max-w-4xl mx-auto">
-        <form
-          className="space-y-6 mb-8"
-          id="contact-form"
-          ref={contactFormRef}
-          onSubmit={handleSubmit}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm mb-2">First Name</label>
-              <input
-                type="text"
-                className="w-full px-4 py-3 rounded-lg"
-                style={{ color: 'whitesmoke', backgroundColor: '#005880' }}
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-sm mb-2">Contact Number</label>
-              <PhoneInput
-                international
-                defaultCountry="LK"
-                value={phone}
-                onChange={handlePhoneChange}
-                className="w-full px-4 py-3 rounded-lg border-2 border-[#005880]"
-                required
-              />
-            </div>
-          </div>
-          <div>
-            <label className="block text-sm mb-2">Email</label>
-            <input
-              type="email"
-              className="w-full px-4 py-3 rounded-lg"
-              style={{ color: 'whitesmoke', backgroundColor: '#005880' }}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-sm mb-2">Message</label>
-            <textarea
-              rows="6"
-              className="w-full px-4 py-3 rounded-lg"
-              style={{ color: 'whitesmoke', backgroundColor: '#005880' }}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              required
-            />
-          </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            <button
-              type="button"
-              className="gradient-btn clear-btn"
-              onClick={handleReset}
-            >
-              Clear
-            </button>
-            <button type="submit" className="gradient-btn submit-btn">
-              Submit
-            </button>
-            <button
-              type="button"
-              id="locate-btn"
-              className="gradient-btn locate-btn"
-              onClick={toggleMap}
-            >
-              Locate Us
-            </button>
-          </div>
-        </form>
+    <section className="min-h-screen flex items-center justify-center bg-gray-50 py-10">
+      <div
+        className="w-full max-w-6xl mx-4 bg-white shadow-lg rounded-2xl overflow-hidden"
+        style={{
+          backgroundImage: 'url(/path/to/your-background-image.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Header Section */}
+        <div className="text-center py-6 bg-[#005880] text-white">
+          <h1 className="text-4xl font-bold">Contact Us</h1>
+        </div>
 
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-6">
+          {/* Contact Info */}
+          <div className="col-span-1 space-y-6 pl-8">
+            {/* Address */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center p-4 bg-gray-100 rounded-lg shadow-md cursor-pointer hover:bg-blue-500 hover:text-white hover:shadow-lg transition-all"
+              title="Click to toggle map"
+              onClick={handleAddressClick} // Use onClick for both mobile and desktop
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-[#005880] text-white rounded-full">
+                <i className="fas fa-map-marker-alt text-2xl"></i>
+              </div>
+              <div className="ml-4">
+                <p className="font-semibold">Address</p>
+                <p>262 Peradeniya Road Kandy</p>
+              </div>
+            </motion.div>
+
+            {/* Phone */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center p-4 bg-gray-100 rounded-lg shadow-md cursor-pointer hover:bg-blue-500 hover:text-white hover:shadow-lg transition-all"
+              title="Click Here"
+              onClick={() => window.location.href = 'tel:+94123456789'}
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-[#005880] text-white rounded-full">
+                <i className="fas fa-phone-alt text-2xl"></i>
+              </div>
+              <div className="ml-4">
+                <p className="font-semibold">Phone</p>
+                <p>+94 76 635 6336</p>
+              </div>
+            </motion.div>
+
+            {/* Email */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center p-4 bg-gray-100 rounded-lg shadow-md cursor-pointer hover:bg-blue-500 hover:text-white hover:shadow-lg transition-all"
+              title="Click Here"
+              onClick={() => window.location.href = 'mailto:info@example.com'}
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-[#005880] text-white rounded-full">
+                <i className="fas fa-envelope text-2xl"></i>
+              </div>
+              <div className="ml-4">
+                <p className="font-semibold">Email</p>
+                <p>info@Rtechsl.com</p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="col-span-2 p-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block mb-2 font-medium text-gray-700">First Name</label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#005880] outline-none"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block mb-2 font-medium text-gray-700">Contact Number</label>
+                  <PhoneInput
+                    international
+                    defaultCountry="LK"
+                    value={formData.phone}
+                    onChange={handlePhoneChange}
+                    className="w-full px-4 py-2 rounded-lg border-2 border-gray-300 focus:ring-2 focus:ring-[#005880] outline-none"
+                    required
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block mb-2 font-medium text-gray-700">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#005880] outline-none"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block mb-2 font-medium text-gray-700">Message</label>
+                <textarea
+                  name="message"
+                  rows="5"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#005880] outline-none"
+                  required
+                ></textarea>
+              </div>
+              <div className="text-center">
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  type="submit"
+                  className="px-6 py-2 bg-[#005880] text-white font-semibold rounded-lg shadow-md hover:bg-white hover:text-[#005880] hover:border-2 hover:border-[#005880] transition-all"
+                >
+                  Submit
+                </motion.button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        {/* Map */}
         {showMap && (
-          <div
-            id="map-container"
-            data-aos="fade-up"
-            data-aos-anchor-placement="top-bottom"
-          >
+          <div className="px-8 pb-8">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d989.3953180220852!2d80.6280255694476!3d7.288389229814359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3695e645b83af%3A0xa5d2d32338faae42!2sR-Tech%20Solutions!5e0!3m2!1sen!2slk!4v1732601237194!5m2!1sen!2slk"
               width="100%"
-              height="450"
+              height="400"
               style={{ border: '0' }}
               allowFullScreen=""
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-lg"
-              title="Google Maps location of R-Tech Solutions"
+              className="rounded-lg shadow-lg"
             ></iframe>
           </div>
         )}

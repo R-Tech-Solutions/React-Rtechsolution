@@ -1,177 +1,194 @@
-/* CSS for Team Section */
-@keyframes fadeInRight {
-  0% {
-    transform: translateX(25%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* Style for the Management Team */
-.management-team {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem; /* Increased gap for more space between elements */
-  margin-top: 1rem;
+/* Team.css */
+.team-section {
+  background-color: #005880; /* Section Background */
 }
 
 .team-header {
+  color: white; /* Header color */
+  font-size: 2rem; /* Font size for header */
   margin-bottom: 2rem;
 }
+.card:hover {
+  transform: scale(1.05);
+}
 
-.management-team .team-members {
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.social-links-bar {
+  background-color: #003e63; /* Darker background for social links */
+  padding: 10px;
+  border-radius: 10px;
+  position: absolute;
+  top: 0; /* Overlay the card */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4rem; /* Increased gap between team members */
-}
-
-.management-team .member {
-  animation: fadeInRight 0.8s forwards; /* Faster animation */
-  opacity: 0;
-  transform: translateX(50%);
-}
-
-.management-team img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Styling for the icons in management team */
-.management-team .icon {
-  color: #fdfdfd;
-  padding: 6px;
-  border-radius: 50%;
-  font-size: 2rem; /* Increased icon size */
-  border: none; /* Removed border */
-}
-
-/* Style for the Development Team */
-.dev-team .team-members {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 items in a row */
-  gap: 3rem; /* Equal gap between images */
-}
-
-.dev-team .team-members .member {
-  display: flex;
   flex-direction: column;
-  align-items: center;
-  animation: fadeInRight -5s forwards; /* Faster animation */
-  opacity: 0;
-  transform: translateX(50%);
+  space-y: 1rem;
 }
 
-.dev-team img {
-  width: 120px;
-  height: 120px;
+.social-icon {
+  margin: 5px;
+}
+
+.plus-icon {
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 5px;
+  background-color: #003e63;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
-/* Ensure the next row starts from the center for development team if there are more than 5 members */
-@media (min-width: 768px) {
-  .dev-team .team-members {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 items in a row */
-  }
-
-  .dev-team .team-members > div:nth-child(5n+1) {
-    justify-self: center; /* Center the first item in each row */
-  }
-
-  .dev-team .team-members > div:nth-child(5n+2) {
-    justify-self: flex-start; /* Align the second item to the left */
-  }
-
-  .dev-team .team-members > div:nth-child(5n+3) {
-    justify-self: center; /* Center the third item */
-  }
-
-  .dev-team .team-members > div:nth-child(5n+4) {
-    justify-self: flex-end; /* Align the fourth item to the right */
-  }
-
-  .dev-team .team-members > div:nth-child(5n+5) {
-    justify-self: center; /* Center the fifth item */
-  }
+.plus-icon:hover {
+  transform: rotate(45deg);
 }
 
-/* Icons and name styling for the Development team */
-.dev-team .icon {
+.close-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
   color: white;
-  padding: 6px;
-  border-radius: 50%;
-  font-size: 2rem; /* Increased icon size */
-  border: none; /* Removed border */
+  font-size: 1.5rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 20;
 }
 
-.dev-team .member-info {
-  text-align: left;
-  padding-left: 10px;
+.management-team-grid {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.development-team-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .development-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .development-team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .development-team-grid {
+    grid-template-columns: repeat(6, 1fr); /* 6 columns on desktop */
+  }
+}
+
+/* Team.css */
+
+/* For fixed size management team cards */
+
+
+.card:hover {
+  transform: scale(1.05);  /* Maintain the hover effect */
+}
+
+/* For development team grid */
+.development-team-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* 1 column for mobile by default */
+  grid-gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .development-team-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile screens */
+  }
+}
+
+@media (min-width: 768px) {
+  .development-team-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for tablets and larger devices */
+  }
+}
+
+@media (min-width: 1024px) {
+  .development-team-grid {
+    grid-template-columns: repeat(6, 1fr); /* 6 columns on desktop */
+  }
+}
+
+/* Default card styles */
+.card {
+  width: 175px;  /* Set a fixed width for larger screens */
+  height: 350px; /* Set a fixed height */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  background-color: white; /* Card background color */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: space-between;
 }
 
-.dev-team .member-info .position {
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: 3px;
-}
-
-
-/* Media query for mobile devices */
-@media (max-width: 768px) {
-  .dev-team .team-members {
-    grid-template-columns: repeat(3, 1fr); /* 3 items in a row for mobile */
-    gap: 1.5rem; /* Reduced gap between members */
+/* For mobile screens, change card width to 170px and show 2 per row */
+@media (max-width: 640px) {
+  .card {
+    width: 170px !important;  /* Adjust card width for mobile */
   }
-
-  .dev-team img {
-    width: 80px; /* Smaller image size for mobile */
-    height: 80px; /* Smaller image size for mobile */
-  }
-
-  .dev-team .icon {
-    font-size: 1.5rem; /* Smaller icon size for mobile */
-  }
-
-  .dev-team .member-info {
-    padding-left: 5px; /* Reduced padding for mobile */
-  }
-
-  .dev-team .member-info .position {
-    font-size: 0.8rem; /* Smaller font size for positions */
+  
+  .development-team-grid {
+    grid-template-columns: repeat(2, 1fr) !important; /* Show 2 cards per row */
   }
 }
 
-/* Optional: Adjust for very small devices (e.g., max-width: 480px) */
-@media (max-width: 480px) {
-  .dev-team .team-members {
-    grid-template-columns: repeat(2, 1fr); /* 2 items in a row for very small screens */
+/* Other media queries for larger screens can stay as is */
+@media (min-width: 768px) {
+  .development-team-grid {
+    grid-template-columns: repeat(3, 1fr) !important; /* 3 columns for tablets and larger devices */
   }
+}
 
-  .dev-team img {
-    width: 60px; /* Further reduced size */
-    height: 60px;
+@media (min-width: 1024px) {
+  .development-team-grid {
+    grid-template-columns: repeat(6, 1fr) !important; /* 6 columns for desktop */
   }
+}
 
-  .dev-team .icon {
-    font-size: 1.2rem; /* Further reduced icon size */
+
+/* Styling the position text */
+.position {
+  font-size: 1rem; /* Default font size (18px) */
+  font-weight: 200; /* Medium weight */
+  color: #005880; /* Position text color */
+  line-height: 2; /* Line height for better spacing */
+  max-height: 1rem; /* Max height for two lines */
+
+  text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit text to 2 lines */
+  -webkit-box-orient: vertical;
+}
+
+/* For larger screens, increase the font size */
+@media (min-width: 768px) {
+  .position {
+    font-size: 1.25rem; /* Increase font size for larger screens */
   }
+}
 
-  .dev-team .member-info {
-    font-size: 0.7rem; /* Even smaller font size for very small screens */
+/* For mobile, reduce the font size */
+@media (max-width: 640px) {
+  .position {
+    font-size: 1rem; /* Reduce font size for small screens */
   }
 }

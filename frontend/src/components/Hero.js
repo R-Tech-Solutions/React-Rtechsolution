@@ -1,277 +1,156 @@
-import { motion } from 'framer-motion';
-import { useRef, useCallback } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Environment } from '@react-three/drei';
-import { FiMonitor, FiLayers, FiUsers, FiShield } from 'react-icons/fi';
-import { FaArrowRight } from 'react-icons/fa';
-import { useFrame } from '@react-three/fiber';
-import { Box, Sphere } from '@react-three/drei';
-import App from '../assets/images/app-dev.png';
-import Web from '../assets/images/web-dev.png';
-import Pos from '../assets/images/pos.png';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import Typewriter from "typewriter-effect";
 
-const FloatingServer = () => {
-  const serverRef = useRef();
-  const orbitRef = useRef();
-
-  useFrame(({ clock }) => {
-    const t = clock.getElapsedTime();
-    serverRef.current.rotation.y = t * 0.5;
-    serverRef.current.position.y = Math.sin(t) * 0.2;
-
-    orbitRef.current.rotation.y = t * 0.3;
-    orbitRef.current.rotation.x = t * 0.2;
-  });
-
-  return (
-    <group>
-      {/* Main Server */}
-      <group ref={serverRef}>
-        <Box args={[1, 2, 0.5]} position={[0, 0, 0]}>
-          <meshStandardMaterial color="#2563eb" metalness={0.8} roughness={0.2} />
-        </Box>
-
-        {/* Server Details */}
-        <Box args={[0.8, 0.1, 0.4]} position={[0, 0.5, 0.1]}>
-          <meshStandardMaterial color="#1e40af" metalness={0.9} roughness={0.1} />
-        </Box>
-      </group>
-
-      {/* Orbiting Elements */}
-      <group ref={orbitRef}>
-        {[0, 120, 240].map((angle, i) => (
-          <Sphere
-            key={i}
-            args={[0.1]}
-            position={[
-              Math.cos((angle * Math.PI) / 180) * 2,
-              Math.sin((angle * Math.PI) / 180) * 2,
-              0
-            ]}
-          >
-            <meshStandardMaterial color="#60a5fa" emissive="#60a5fa" emissiveIntensity={0.5} />
-          </Sphere>
-        ))}
-      </group>
-    </group>
-  );
-};
-
-const Scene = () => {
-  return (
-    <Canvas className="w-full h-full">
-      <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-      <OrbitControls enableZoom={false} enablePan={false} />
-
-      <Environment preset="city" />
-
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1} />
-
-      <FloatingServer />
-    </Canvas>
-  );
-};
-
-const HeroContent = () => {
-  const handleGetStarted = useCallback(() => {
-    console.log('Get Started clicked');
-  }, []);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: -50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8 }}
-      className="lg:max-w-xl"
-    >
-      <motion.h1
-      
-        className="text-2xl md:text-5xl font-bold mb-0 text-[#005880]"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-      ><br/><br/><br/>
-        Future of Mobile,Web,POS
-
-        <motion.span
-          className="block text-black text-3xl md:text-3xl mt-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-           Solutions in Sri Lanka
-        </motion.span>
-      </motion.h1>
-
-      <motion.p
-        className="text-xl md:text-1xl mb-8 max-w-3xl"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4 }}
-      >
-        Enhance your online presence with our professional services, offering budget-friendly
-        custom-made apps, responsive web designs, and POS systems designed to meet your
-        business requirements.
-      </motion.p>
-
-      <motion.div
-        className="flex gap-4 flex-wrap"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8 }}
-      >
-        <motion.button
-          whileHover={{ scale: 1.05, x: 10 }}
-          whileTap={{ scale: 0.95 }}
-          className="group bg-primary hover:bg-secondary text-white px-8 py-3 rounded-full
-                   transition duration-300 text-lg font-semibold flex items-center gap-2"
-          onClick={handleGetStarted}
-        >
-          Get Started
-          <motion.span
-            initial={{ x: 0 }}
-            animate={{ x: [0, 5, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-          >
-            <FaArrowRight className="inline-block" />
-          </motion.span>
-        </motion.button>
-
-        <motion.button
-          whileHover={{ scale: 1.05, backgroundColor: 'rgb(0, 0, 0)', color: '#ffffff' }}
-          whileTap={{ scale: 0.95 }}
-          className="border-2 border-white hover:bg-white hover:text-blue-900 text-[#005880] '
-                   px-8 py-3 rounded-full transition duration-300 text-lg font-semibold"
-        >
-          Learn More
-        </motion.button>
-      </motion.div>
-    </motion.div>
-  );
-};
-
-const HeroImages = () => {
-  const constraintsRef = useRef(null);
-
-  const images = [
-    {
-      src: Web,
-      alt: 'Web Development',
-      className: 'absolute top-0 right-0 w-64 h-48 rounded-lg shadow-xl'
-    },
-    {
-      src: App,
-      alt: 'Mobile Development',
-      className: 'absolute top-1/4 right-1/4 w-56 h-40 rounded-lg shadow-xl'
-    },
-    {
-      src: Pos,
-      alt: 'POS System',
-      className: 'absolute bottom-0 right-1/3 w-48 h-36 rounded-lg shadow-xl'
-    }
-  ];
-
-  return (
-    <motion.div
-      ref={constraintsRef}
-      className="relative h-[600px] w-full hidden lg:block"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
-      {images.map((image, index) => (
-        <motion.div
-          key={index}
-          className={image.className}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.2, duration: 0.8 }}
-          whileHover={{ scale: 1.05, rotate: [-1, 1, -1], transition: { duration: 0.3 } }}
-          drag
-          dragConstraints={constraintsRef}
-          dragElastic={0.1}
-        >
-          <img
-            src={image.src}
-            alt={image.alt}
-            className="w-full h-full object-cover rounded-lg"
-          />
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20
-                     rounded-lg backdrop-blur-sm opacity-0 hover:opacity-100 transition-opacity
-                     duration-300 flex items-center justify-center"
-          >
-            <span className="text-white font-semibold text-lg">{image.alt}</span>
-          </motion.div>
-        </motion.div>
-      ))}
-    </motion.div>
-  );
-};
-
-const Features = () => {
-  const features = [
-    {
-      icon: <FiMonitor className="w-8 h-8" />,
-      title: "Modern Technology",
-      description: "Built with the latest and most powerful technologies available."
-    },
-    {
-      icon: <FiLayers className="w-8 h-8" />,
-      title: "Custom Solutions",
-      description: "Tailored solutions to meet the specific needs of your business."
-    },
-    {
-      icon: <FiUsers className="w-8 h-8" />,
-      title: "User-Centered Design",
-      description: "Designed with user experience as the primary focus."
-    },
-    {  
-      icon: <FiShield className="w-8 h-8" />,
-      title: "Secure Systems",
-      description: "Ensuring security and reliability for your applications."
-    }
-  ];
-  
-
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-0">
-      {features.map((feature, index) => (
-        <motion.div
-          key={index}
-          className="flex items-center gap-4 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.2, duration: 0.8 }}
-        >
-          <div className="text-blue-600 bg-blue-100 p-3 rounded-full">
-            {feature.icon}
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-            <p className="text-gray-600">{feature.description}</p>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  );
-};
+// Import images
+import App from "../assets/images/app-dev.png";
+import Web from "../assets/images/web-dev.png";
+import Pos from "../assets/images/pos.png";
+import Background1 from "../assets/images/B1.png";
+import Background2 from "../assets/images/B2.png";
 
 const Hero = () => {
-  return (  
-    <section className="relative h-screen flex flex-col-reverse lg:flex-row items-center justify-center px-8 lg:px-16">
-      <div className="z-10">
-        <HeroContent />
-        <Features />
+  const [selectedService, setSelectedService] = useState(null);
+
+  const services = [
+    { title: "Mobile Development", image: App },
+    { title: "Web Development", image: Web },
+    { title: "POS Solutions", image: Pos },
+  ];
+
+  const handleServiceClick = (index) => {
+    setSelectedService(selectedService === index ? null : index);
+  };
+
+  return (
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-r from-blue-50 to-blue-100">
+      {/* Animated Background */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: [0, 1, 0] }}
+        transition={{ duration: 6, repeat: Infinity, repeatType: "reverse" }}
+      >
+        <img
+          src={Background1}
+          className="absolute w-full h-full object-cover"
+          alt=""
+        />
+      </motion.div>
+      <motion.div
+        className="absolute inset-0 z-0"
+        initial={{ opacity: 1 }}
+        animate={{ opacity: [1, 0, 1] }}
+        transition={{ duration: 6, repeat: Infinity, repeatType: "reverse" }}
+      >
+        <img src={Background2} className="w-full h-full object-cover" alt="" />
+      </motion.div>
+
+      {/* Content Container */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-4 md:px-8 lg:px-16 h-screen flex flex-col justify-center items-center lg:grid lg:grid-cols-2 lg:gap-12">
+        {/* Left Side */}
+        <div className="text-gray-800 space-y-6 text-center lg:text-left sm:mt-0 mt-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#005880]">
+            Cutting-Edge Solutions
+          </h1>
+          <div
+            className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#005880]"
+            style={{ fontFamily: "sans-serif" }}
+          >
+            <Typewriter
+              options={{
+                strings: ["Mobile Development", "Web Development", "POS Solutions"],
+                autoStart: true,
+                loop: true,
+              }}
+            />
+          </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 text-lg sm:text-xl md:text-2xl text-[#005880]">
+            <span>in</span>
+            <div className="relative">
+              <span className="font-bold">Sri Lanka</span>
+            </div>
+          </div>
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-xl mx-auto lg:mx-0">
+            Enhance your online presence with our professional services, offering
+            budget-friendly custom-made apps, responsive web designs, and POS
+            systems designed to meet your business requirements.
+          </p>
+        </div>
+
+
+
+        {/* Desktop View - Floating Images */}
+        <div className="relative hidden lg:block h-[500px]">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              className={`absolute w-48 sm:w-56 h-48 sm:h-56 rounded-2xl overflow-hidden cursor-pointer`}
+              style={{
+                top: `${index * 150}px`,
+                right: index === 2 ? "50px" : `${50 + index * 150}px`,
+                zIndex: selectedService === index ? 10 : 1,
+              }}
+              animate={{
+                y: [0, -20, 0],
+                scale: selectedService === index ? 1.1 : 1,
+              }}
+              transition={{
+                y: {
+                  duration: 3,
+                  repeat: Infinity,
+                  delay: index * 0.3,
+                },
+                scale: {
+                  duration: 0.3,
+                },
+              }}
+              whileHover={{ scale: 1.05, zIndex: 10 }}
+              onClick={() => handleServiceClick(index)}
+            >
+              <div className="relative w-full h-full group">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover rounded-2xl transition-all duration-300 group-hover:blur-none blur-sm"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-0 transition-all duration-300" />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Mobile View - Simplified Images */}
+        <div className="relative flex flex-wrap justify-center gap-4 lg:hidden">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              className="w-32 sm:w-40 h-32 sm:h-40 rounded-2xl overflow-hidden cursor-pointer"
+              animate={{
+                y: [0, -10, 0],
+              }}
+              transition={{
+                y: {
+                  duration: 3,
+                  repeat: Infinity,
+                  delay: index * 0.3,
+                },
+              }}
+            >
+              <div className="relative w-full h-full group m-6">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover rounded-md transition-all duration-300 group-hover:blur-none blur-sm"
+
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-0 transition-all duration-300" />
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-      <div className="relative w-full lg:w-1/2 h-full">
-        <HeroImages />
-      </div>
-      <div className="absolute inset-0">
-        <Scene />
-      </div>
-    </section>
+    </div>
   );
 };
 
