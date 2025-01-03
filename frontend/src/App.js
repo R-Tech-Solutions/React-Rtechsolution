@@ -29,7 +29,7 @@ import Login from './components/Login';
 import CareerJoinUs from './components/Careerjoinus';
 import FloatingButtons from './components/Floating-buttons'; 
 import ContactWithus from './components/ContactWithus'
-import MinimalPage from './components/MinimalPage';
+
 const NotFound = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', textAlign: 'center' }}>
@@ -68,7 +68,6 @@ function App() {
               <Team />
             </>
           } />
-           <Route path="/rtechsl.com" element={<MinimalPage />} />
           <Route path="/services/app-development" element={<AppDevelopment />} />
           <Route path="/services/web-development" element={<WebDevelopment />} />
           <Route path="/services/pos-system" element={<PosSystem />} />
