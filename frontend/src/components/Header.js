@@ -14,8 +14,6 @@ import {
   FaCamera,
   FaNetworkWired,
   FaHome,
-  FaSun,
-  FaMoon,
 } from "react-icons/fa";
 import logo from "../assets/images/brand.jpg";
 import logo2 from "../assets/images/logo.jpg";
@@ -84,11 +82,10 @@ const Dropdown = ({ title, icon, links, isMobile, onClose }) => {
 
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+
   const navigate = useNavigate();
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
-  const toggleDarkMode = () => setDarkMode(!darkMode);
 
   const servicesLinks = [
     {
@@ -127,9 +124,6 @@ const Header = () => {
 
   return (
     <header
-      className={`transition-colors ${
-        darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-700"
-      }`}
     >
       {/* Desktop Header */}
       <nav className="hidden lg:flex items-center justify-between py-6 px-8 lg:px-24 border-b border-gray-100 shadow-md">
@@ -140,10 +134,9 @@ const Header = () => {
   </Link>
 </div>
 
-        <div className="flex items-center space-x-8">
+        <div className="flex items-center space-x-6">
           <Dropdown
-            title="Services"
-            icon={<FaList className="text-primary" />}
+            title="Services"  
             links={servicesLinks}
           />
           <Link to="/" className="text-sm font-medium hover:text-primary">
@@ -162,17 +155,10 @@ const Header = () => {
             Blog
           </Link>
           <Link to="/getstarted">
-            <button className="bg-primary text-white text-sm font-medium px-6 py-2.5 rounded hover:opacity-90 transition-opacity">
-              Get Started
-            </button>
-          </Link>
-          {/* <button
-            onClick={toggleDarkMode}
-            className="p-2 bg-transparent rounded-full hover:bg-primary focus:outline-none transition-colors"
-            aria-label="Toggle Dark Mode"
-          >
-            {darkMode ? <FaSun /> : <FaMoon />}
-          </button> */}
+  <button className="bg-primary text-white text-sm font-medium px-8 py-2 rounded hover:opacity-90 transition-opacity">
+    Get Started
+  </button>
+</Link>
         </div>
       </nav>
 
@@ -185,6 +171,7 @@ const Header = () => {
     <FaBars size={24} />
   </button>
   <img src={logo2} alt="Company Logo" className="h-12" />
+  <img src={logo} alt="Company Logo" className="w-12 h-12" />
 </nav>
 
 
