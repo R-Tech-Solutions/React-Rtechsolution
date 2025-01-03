@@ -29,8 +29,7 @@ import Login from './components/Login';
 import CareerJoinUs from './components/Careerjoinus';
 import FloatingButtons from './components/Floating-buttons'; 
 import ContactWithus from './components/ContactWithus'
-import HappynewYear from './components/HappynewYear';
-// NotFound component
+import MinimalPage from './components/MinimalPage';
 const NotFound = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', textAlign: 'center' }}>
@@ -54,7 +53,7 @@ function App() {
         <Routes>
           <Route path="/" element={
             <>
-            <HappynewYear />
+  
               <Hero />
 
               <Services />
@@ -69,7 +68,7 @@ function App() {
               <Team />
             </>
           } />
-          
+           <Route path="/rtechsl.com" element={<MinimalPage />} />
           <Route path="/services/app-development" element={<AppDevelopment />} />
           <Route path="/services/web-development" element={<WebDevelopment />} />
           <Route path="/services/pos-system" element={<PosSystem />} />
@@ -85,7 +84,6 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/Carears" element={<Carears />} />
           <Route path="/ContactWithus" element={< ContactWithus/>} />
-          <Route path="/HappynewYear"  element={< HappynewYear/>} />
 
           {/* Fallback Route */}
           <Route path="*" element={<NotFound />} />

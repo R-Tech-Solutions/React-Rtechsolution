@@ -18,7 +18,7 @@ import {
   FaMoon,
 } from "react-icons/fa";
 import logo from "../assets/images/brand.jpg";
-
+import logo2 from "../assets/images/logo.jpg";
 const Dropdown = ({ title, icon, links, isMobile, onClose }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -133,11 +133,13 @@ const Header = () => {
     >
       {/* Desktop Header */}
       <nav className="hidden lg:flex items-center justify-between py-6 px-8 lg:px-24 border-b border-gray-100 shadow-md">
-        <div className="flex items-center">
-          <Link to="/" className="logo-container">
-            <img src={logo} alt="Company Logo" className="w-20 h-20" />
-          </Link>
-        </div>
+      <div className="flex items-center space-x-2">
+  <Link to="/" className="logo-container flex items-center">
+    <img src={logo} alt="Company Logo" className="w-20 h-20" />
+    <img src={logo2} alt="Company Logo" className="h-20" />
+  </Link>
+</div>
+
         <div className="flex items-center space-x-8">
           <Dropdown
             title="Services"
@@ -176,13 +178,15 @@ const Header = () => {
 
       {/* Mobile Hamburger Menu */}
       <nav className="lg:hidden flex items-center justify-between py-6 px-8 bg-white shadow-md">
-        <button
-          onClick={toggleSidebar}
-          className="bg-primary text-white p-2 rounded-lg"
-        >
-          <FaBars size={24} />
-        </button>
-      </nav>
+  <button
+    onClick={toggleSidebar}
+    className="bg-primary text-white p-2 rounded-lg mr-4"
+  >
+    <FaBars size={24} />
+  </button>
+  <img src={logo2} alt="Company Logo" className="h-12" />
+</nav>
+
 
       {/* Sidebar */}
       {isSidebarOpen && (
