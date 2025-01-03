@@ -171,7 +171,6 @@ const Header = () => {
     <FaBars size={24} />
   </button>
   <img src={logo2} alt="Company Logo" className="h-12" />
-  <img src={logo} alt="Company Logo" className="w-12 h-12" />
 </nav>
 
 

@@ -28,7 +28,7 @@ import Carears from './components/Carears';
 import Login from './components/Login';
 import CareerJoinUs from './components/Careerjoinus';
 import FloatingButtons from './components/Floating-buttons'; 
-import ContactWithus from './components/ContactWithus'
+import ContactWithus from './components/ContactWithus';
 
 const NotFound = () => {
   return (
@@ -41,21 +41,22 @@ const NotFound = () => {
 function App() {
   const location = useLocation();
 
-  // Check if the current path is '/Adminapp'
+  // Check if the current path is '/Adminapp' or the "Page Not Found" route
   const isAdminRoute = location.pathname === '/Adminapp';
+  const isNotFoundRoute = location.pathname === '*';
+
+  const shouldShowHeaderAndFooter = !isAdminRoute && !isNotFoundRoute;
 
   return (
     <div className="app">
       {/* Conditionally render Header */}
-      {!isAdminRoute && <Header />}
+      {shouldShowHeaderAndFooter && <Header />}
       
       <div className="page-content">
         <Routes>
           <Route path="/" element={
             <>
-  
               <Hero />
-
               <Services />
               <Stats />
               <OurProcess />
@@ -82,7 +83,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/Carears" element={<Carears />} />
-          <Route path="/ContactWithus" element={< ContactWithus/>} />
+          <Route path="/ContactWithus" element={< ContactWithus />} />
 
           {/* Fallback Route */}
           <Route path="*" element={<NotFound />} />
@@ -90,7 +91,7 @@ function App() {
       </div>
       
       {/* Conditionally render Footer */}
-      {!isAdminRoute && <Footer />}
+      {shouldShowHeaderAndFooter && <Footer />}
       
       <FloatingButtons />
     </div>
