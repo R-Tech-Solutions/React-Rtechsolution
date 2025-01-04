@@ -48,7 +48,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/js/all.min.js"></script>
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9KEVQ7YEK3"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -102,6 +102,12 @@
     </div>
 
     <script>
+      <!-- Google tag (gtag.js) -->
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+       gtag('config', 'G-9KEVQ7YEK3'); 
       // Wrap every letter in a span
       const textWrapper = document.querySelector('.ml3');
       textWrapper.innerHTML = textWrapper.textContent.replace(
