@@ -106,100 +106,100 @@ export default function Portfolio() {
   return (
     <>
       {/* Hero Section */}
-      <section id="home" className="min-h-screen z-10 container mx-auto flex  justify-center md:px-4 lg:px-40 py-8 relative bg-gray-50">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-light to-primary-dark opacity-10"></div>
-          <motion.div
-            className="absolute inset-0"
-            animate={{
-              backgroundPosition: ['0% 0%', '100% 100%'],
-            }}
-            transition={{
-              repeat: Infinity,
-              repeatType: 'reverse',
-              duration: 20,
-            }}
-            style={{
-              backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-            }}
-          ></motion.div>
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-4xl md:text-5xl font-bold leading-tight text-[#005880]"
-              >
-                Future of App Web Development, POS Solutions, CCTV Installation, Networking in Sri Lanka
-              </motion.h1>
+      <section
+  id="home"
+  className="min-h-screen z-10 container mx-auto flex justify-center md:px-4 lg:px-40 py-8 relative bg-gray-50"
+>
+  {/* Background Gradient */}
+  <div className="absolute inset-0 z-0">
+    <div className="absolute inset-0 bg-gradient-to-br from-primary-light to-primary-dark opacity-10"></div>
+    <motion.div
+      className="absolute inset-0"
+      animate={{
+        backgroundPosition: ['0% 0%', '100% 100%'],
+      }}
+      transition={{
+        repeat: Infinity,
+        repeatType: 'reverse',
+        duration: 20,
+      }}
+      style={{
+        backgroundImage:
+          'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+      }}
+    ></motion.div>
+  </div>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-md text-gray-600"
-              >
-                We deliver cutting-edge IT solutions that drive innovation and business growth. Our expertise spans across web development, cloud solutions, digital transformation.
-              </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4"
-              >
+  <div className="container mx-auto px-4 relative z-10">
+    <div className="grid md:grid-cols-2 gap-12 items-center">
+      {/* Text Content */}
+      <div className="space-y-6">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#005880]"
+        >
+          Future of App Web Development, POS Solutions, CCTV Installation, Networking in Sri Lanka
+        </motion.h1>
 
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-sm sm:text-md md:text-lg text-gray-600"
+        >
+          We deliver cutting-edge IT solutions that drive innovation and business growth. Our expertise spans across web
+          development, cloud solutions, digital transformation.
+        </motion.p>
 
-              </motion.div>
-              <div className="flex flex-row items-center gap-6 md:hidden sm:hidden">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="text-primary" />
-                  <span>24/7 Support</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="text-primary" />
-                  <span>99.9% Uptime</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="text-primary" />
-                  <span>Secure Solutions</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="text-primary" />
-                  <span>Expert Team</span>
-                </div>
-              </div>
-
-            </div>
-            <div>
-              <motion.img
-                initial={{ opacity: 0, x: -20, y: 0 }}
-                animate={{ opacity: 1, x: 0, y: -10 }}
-                transition={{
-                  duration: 1.5,
-                  delay: 0.4,
-                  repeat: Infinity, // Make the float continuous
-                  repeatType: 'reverse', // Reverse animation to create a floating effect
-                  ease: 'easeInOut', // Smooth animation transition
-                }}
-                style={{
-                  borderRadius: '25px',
-                  boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)', // Box shadow
-                  width: window.innerWidth <= 480 ? '300px' : '500px', // Adjust size based on screen width
-                  height: 'auto',
-                }}
-                src={Brand}
-                alt="App Development"
-                className="mx-auto sm:mx-0 responsive-img"
-              />
-
-
-            </div>
+        {/* List Items in 2x2 Grid on Mobile */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4"
+        >
+          <div className="flex items-center gap-2">
+            <CheckCircle className="text-primary" />
+            <span>24/7 Support</span>
           </div>
-        </div>
-      </section>
+          <div className="flex items-center gap-2">
+            <CheckCircle className="text-primary" />
+            <span>99.9% Uptime</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <CheckCircle className="text-primary" />
+            <span>Secure Solutions</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <CheckCircle className="text-primary" />
+            <span>Expert Team</span>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Image Content */}
+      <div>
+        <motion.img
+          initial={{ opacity: 0, x: -20, y: 0 }}
+          animate={{ opacity: 1, x: 0, y: -10 }}
+          transition={{
+            duration: 1.5,
+            delay: 0.4,
+            repeat: Infinity, // Floating effect
+            repeatType: 'reverse',
+            ease: 'easeInOut',
+          }}
+          className="rounded-lg shadow-lg mx-auto w-[300px] sm:w-[400px] md:w-[500px] h-auto"
+          src={Brand}
+          alt="App Development"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Projects Section */}
       <section id="projects" className="py-4">
