@@ -29,7 +29,9 @@ import Login from './components/Login';
 import CareerJoinUs from './components/Careerjoinus';
 import FloatingButtons from './components/Floating-buttons'; 
 import ContactWithus from './components/ContactWithus';
-
+import RefundPolicy from './components/RefundPolicy';
+import ReturnsPolicy from './components/ReturnsPolicy';
+import PrivacyPolicy from './components/PrivacyPolicy';
 const NotFound = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', textAlign: 'center' }}>
@@ -84,7 +86,9 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/Carears" element={<Carears />} />
           <Route path="/ContactWithus" element={< ContactWithus />} />
-
+          <Route path="/RefundPolicy" element={<RefundPolicy />} /> 
+          <Route path="/ReturnsPolicy" element={<ReturnsPolicy />} />
+          <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
           {/* Fallback Route */}
           <Route path="*" element={<NotFound />} />
         </Routes>

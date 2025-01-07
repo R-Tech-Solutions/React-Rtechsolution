@@ -40,8 +40,15 @@ const sections = [
     title: "Legal",
     items: [
       "Accessibility",
-      "Returns Policy",
-      "Refund Policy",
+      <Link to="/ReturnsPolicy" key="login">
+      <button className="p-2 mb-4">Returns Policy</button>
+        </Link>,
+      <Link to="/RefundPolicy" key="login">
+      <button className="p-2 mb-4">Refund Policy</button>
+        </Link>,
+              <Link to="/PrivacyPolicy" key="login">
+              <button className="p-2 mb-4">Privacy Policy</button>
+                </Link>,
       "Hiring Statistics",
     ],
   },
