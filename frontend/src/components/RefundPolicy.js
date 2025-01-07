@@ -5,54 +5,53 @@ const sections = [
   {
     title: "Eligibility for Refund",
     content: [
-      "You are eligible for a refund if the product is defective, damaged, or not as described.",
-      "Refunds are available within [insert number of days] days of the purchase date.",
-      "To qualify for a refund, the item must be returned in its original condition, including packaging and accessories (if applicable)."
+      "You are eligible for a refund if the software, application, or service provided is defective, not functioning as described, or fails to meet the agreed-upon requirements.",
+      "Refunds are available within 7 days of purchase or project delivery date.",
+      "To qualify for a refund, all source files, documentation, or access credentials provided by our team must not have been tampered with or misused."
     ]
   },
   {
     title: "Non-Refundable Items",
     content: [
-      "Certain items are not eligible for a refund, including:",
-      "Digital downloads",
-      "Customized or personalized products",
-      "Gift cards",
-      "Opened or used products (unless defective)"
+      "Certain services and products are not eligible for a refund, including:",
+      "Custom software solutions delivered and approved by the client.",
+      "Ongoing maintenance or subscription-based services after the service period has started.",
+      "Third-party integrations, licenses, or tools purchased as part of the project."
     ]
   },
   {
     title: "How to Request a Refund",
     content: [
-      "To request a refund, please contact our customer service team at [contact details] with your order number, a description of the issue, and any supporting evidence (e.g., images of damaged items).",
-      "Our team will review your request and provide instructions on how to proceed."
+      "To request a refund, please contact our customer service or support team at info@rtechsl.com with your project ID, a description of the issue, and any supporting evidence (e.g., error logs or screenshots).",
+      "Our team will review your request and determine whether it meets our refund policy criteria. If approved, we will provide further instructions."
     ]
   },
   {
     title: "Processing Time",
     content: [
-      "Refunds will be processed within [insert number of days] business days from the date your request is approved.",
-      "Refunds will be issued to the original payment method used for the purchase."
+      "Refunds will be processed within 7-10 business days from the date your request is approved.",
+      "Refunds will be issued to the original payment method used for the transaction."
     ]
   },
   {
-    title: "Shipping Costs",
+    title: "Customization and Revisions",
     content: [
-      "In cases where the product is defective or not as described, shipping costs for the return will be covered by [Your Company Name].",
-      "For non-defective items, customers are responsible for the return shipping costs."
+      "For custom software or applications, refunds will not be issued if the product was delivered as per the agreed-upon specifications.",
+      "If revisions are required, we offer up to 02 rounds of revisions depending on the service agreement. Additional revisions may incur extra charges."
     ]
   },
   {
-    title: "Exchanges",
+    title: "Support Services",
     content: [
-      "If you would prefer an exchange rather than a refund, please contact our customer service team for assistance."
+      "Refunds are not applicable for support services rendered, including training, troubleshooting, or consultation.",
+      "If there are unresolved issues with the software, our team will work to address them as part of the support agreement."
     ]
   },
   {
     title: "Contact Us",
     content: [
       "For any questions or concerns regarding our refund policy, please contact us at:",
-      "Email: [Your Contact Email]",
-      "Phone: [Your Contact Phone Number]"
+      "Email: info@rtechsl.com",
     ]
   }
 ];
@@ -100,7 +99,7 @@ const RefundPolicy = () => {
         <div className="bg-gradient-to-r from-blue-500 to-indigo-600 py-6 px-6 sm:px-10">
           <h1 className="text-3xl font-bold text-white">Refund Policy</h1>
           <p className="mt-2 text-blue-100">
-            At [Your Company Name], we strive to ensure that our customers are satisfied with their purchases.
+            At R-Tech Solutions, we aim to ensure that our clients receive high-quality software and services.
           </p>
         </div>
         <div className="divide-y divide-gray-200">
@@ -116,7 +115,7 @@ const RefundPolicy = () => {
         </div>
         <div className="bg-gray-50 py-6 px-6 sm:px-10">
           <p className="text-center text-gray-600">
-            Thank you for choosing [Your Company Name].
+            Thank you for choosing R-Tech Solutions.
           </p>
         </div>
       </div>

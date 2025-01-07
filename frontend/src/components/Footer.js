@@ -28,7 +28,7 @@ const sections = [
       "Guides",
       "API Status",
       <Link to="/Login" key="login">
-        <button className="p-2 mb-4">Login</button>
+        <button className="mb-1">Login</button>
       </Link>,
     ],
   },
@@ -41,27 +41,18 @@ const sections = [
     items: [
       "Accessibility",
       <Link to="/ReturnsPolicy" key="login">
-      <button className="p-2 mb-4">Returns Policy</button>
+      <button className="mb-1">Returns Policy</button>
         </Link>,
       <Link to="/RefundPolicy" key="login">
-      <button className="p-2 mb-4">Refund Policy</button>
+      <button className="mb-1">Refund Policy</button>
         </Link>,
               <Link to="/PrivacyPolicy" key="login">
-              <button className="p-2 mb-4">Privacy Policy</button>
+              <button className="mb-1">Privacy Policy</button>
                 </Link>,
       "Hiring Statistics",
     ],
   },
 ];
-
-
-
-
-  
-  
-
-
-
 
 const items = [
   { name: "Facebook", icon: FaFacebook, link: "https://www.facebook.com/" },

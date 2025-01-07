@@ -5,9 +5,9 @@ const sections = [
   {
     title: "Eligibility for Returns",
     content: [
-      "You may return items within [insert number of days] days from the date of purchase.",
+      "You may return items within 07 days from the date of purchase.",
       "The product must be unused, in its original condition, and with all tags and packaging intact (if applicable).",
-      "To initiate a return, please contact our customer service team at [contact details] with your order number and the reason for the return."
+      "To initiate a return, please contact our customer service team at info@rtechsl.com with your order number and the reason for the return."
     ]
   },
   {
@@ -32,7 +32,7 @@ const sections = [
     title: "Refunds",
     content: [
       "Once the returned item is received and inspected, we will notify you of the status of your return.",
-      "If approved, a refund will be issued to the original payment method. Please allow [insert number of days] business days for the refund to be processed.",
+      "If approved, a refund will be issued to the original payment method. Please allow 07 business days for the refund to be processed.",
       "In some cases, we may offer a store credit instead of a refund."
     ]
   },
@@ -46,7 +46,7 @@ const sections = [
   {
     title: "Damaged or Defective Items",
     content: [
-      "If you received a damaged or defective product, please contact us within [insert number of days] days of receiving the item for a return or exchange.",
+      "If you received a damaged or defective product, please contact us within 07 days of receiving the item for a return or exchange.",
       "We may ask for images of the damage or defect to help us process your return."
     ]
   },
@@ -54,8 +54,8 @@ const sections = [
     title: "Contact Us",
     content: [
       "If you have any questions or need assistance with returns, please contact us:",
-      "Email: [Your Contact Email]",
-      "Phone: [Your Contact Phone Number]"
+      "Email: info@rtechsl.com ",
+
     ]
   }
 ];
@@ -110,7 +110,7 @@ const ReturnsPolicy = () => {
       // Scroll to top when the component is mounted
       window.scrollTo(0, 0);
     }, []);
-    
+
   useEffect(() => {
     const timer = setInterval(nextSlide, 5000);
     return () => clearInterval(timer);
@@ -123,7 +123,7 @@ const ReturnsPolicy = () => {
           <div className="bg-gradient-to-r from-indigo-600 to-purple-600 py-8 px-6 sm:px-10">
             <h1 className="text-4xl font-bold text-white mb-2">Returns Policy</h1>
             <p className="text-indigo-100">
-              At [Your Company Name], we want you to be completely satisfied with your purchase.
+              At R-Tech Solutions, we want you to be completely satisfied with your purchase.
             </p>
           </div>
           
@@ -174,7 +174,7 @@ const ReturnsPolicy = () => {
           
           <div className="bg-gray-50 py-6 px-6 sm:px-10">
             <p className="text-center text-gray-600">
-              Thank you for choosing [Your Company Name]. We appreciate your business!
+              Thank you for choosing R-Tech Solutions. We appreciate your business!
             </p>
           </div>
         </div>
