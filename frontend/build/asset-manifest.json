@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.245b0b67.css",
-    "main.js": "/static/js/main.b34fb547.js",
+    "main.js": "/static/js/main.abe45dcb.js",
     "static/media/Netgear.jpg": "/static/media/Netgear.db15a394807baa0329bf.jpg",
     "static/media/Ruijie1.jpg": "/static/media/Ruijie1.dd8d5eabc9647d80c6ba.jpg",
     "static/media/Background1.mp4": "/static/media/Background1.80abfd69aff6557991fb.mp4",
@@ -25,6 +25,7 @@
     "static/media/article3.jpg": "/static/media/article3.b567d18a5111e317e189.jpg",
     "static/media/project1.jpg": "/static/media/project1.c853a4d3368d44cedeef.jpg",
     "static/media/mobile.jpg": "/static/media/mobile.986d6457a2ee74bbd3fd.jpg",
+    "static/media/Blog.jpg": "/static/media/Blog.2c20ef70643cfb678b7e.jpg",
     "static/media/project3.jpg": "/static/media/project3.4051bf988da00d103929.jpg",
     "static/media/St10-1.png": "/static/media/St10-1.aabaec438652777defe9.png",
     "static/media/image (8).jpg": "/static/media/image (8).673013fdf2cb95def59b.jpg",
@@ -44,7 +45,6 @@
     "static/media/project6.jpg": "/static/media/project6.2812b3a1a53ed98df66d.jpg",
     "static/media/project8.jpg": "/static/media/project8.84d75ad4c56d8412e782.jpg",
     "static/media/image (4).jpg": "/static/media/image (4).90e3bd9bf1082337ea4d.jpg",
-    "static/media/Blog.jpg": "/static/media/Blog.d08af7f8245f724da744.jpg",
     "static/media/St6.jpg": "/static/media/St6.d0b49eb069d6f73cea9f.jpg",
     "static/media/project9.jpg": "/static/media/project9.15d896235cd55de9e72d.jpg",
     "static/media/logo.jpg": "/static/media/logo.7a9f37b051e723b85d2b.jpg",
@@ -61,10 +61,10 @@
     "static/media/unv3.jpg": "/static/media/unv3.165598629c0d06ebf977.jpg",
     "index.html": "/index.html",
     "main.245b0b67.css.map": "/static/css/main.245b0b67.css.map",
-    "main.b34fb547.js.map": "/static/js/main.b34fb547.js.map"
+    "main.abe45dcb.js.map": "/static/js/main.abe45dcb.js.map"
   },
   "entrypoints": [
     "static/css/main.245b0b67.css",
-    "static/js/main.b34fb547.js"
+    "static/js/main.abe45dcb.js"
   ]
 }
