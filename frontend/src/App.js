@@ -32,6 +32,8 @@ import ContactWithus from './components/ContactWithus';
 import RefundPolicy from './components/RefundPolicy';
 import ReturnsPolicy from './components/ReturnsPolicy';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsandConditions from './components/TermsandCondition';
+
 const NotFound = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', textAlign: 'center' }}>
@@ -89,6 +91,7 @@ function App() {
           <Route path="/RefundPolicy" element={<RefundPolicy />} /> 
           <Route path="/ReturnsPolicy" element={<ReturnsPolicy />} />
           <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+          <Route path="/TermsandConditions" element={<TermsandConditions />} />
           {/* Fallback Route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
