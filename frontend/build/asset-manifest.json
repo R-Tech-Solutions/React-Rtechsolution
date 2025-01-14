@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.be16e70b.css",
-    "main.js": "/static/js/main.0a95ef92.js",
+    "main.css": "/static/css/main.fe8f7dd4.css",
+    "main.js": "/static/js/main.c53bdfd8.js",
     "static/media/Netgear.jpg": "/static/media/Netgear.db15a394807baa0329bf.jpg",
     "static/media/Ruijie1.jpg": "/static/media/Ruijie1.dd8d5eabc9647d80c6ba.jpg",
     "static/media/Background1.mp4": "/static/media/Background1.80abfd69aff6557991fb.mp4",
@@ -21,8 +21,10 @@
     "static/media/B1.png": "/static/media/B1.dd9091e97dd9d71190ee.png",
     "static/media/ecom.png": "/static/media/ecom.27ac9c6e38e43e7ba9ae.png",
     "static/media/single.jpg": "/static/media/single.8295b4ab55ad61e6d7a0.jpg",
+    "static/media/App21.png": "/static/media/App21.4c411f49d288f82e7998.png",
     "static/media/article2.jpg": "/static/media/article2.fb489a53661a85aacfc7.jpg",
     "static/media/article3.jpg": "/static/media/article3.b567d18a5111e317e189.jpg",
+    "static/media/web21.png": "/static/media/web21.98d35f3b6a51285c5494.png",
     "static/media/project1.jpg": "/static/media/project1.c853a4d3368d44cedeef.jpg",
     "static/media/mobile.jpg": "/static/media/mobile.986d6457a2ee74bbd3fd.jpg",
     "static/media/Blog.jpg": "/static/media/Blog.2c20ef70643cfb678b7e.jpg",
@@ -60,11 +62,11 @@
     "static/media/unv2.jpg": "/static/media/unv2.504656c3dfb7b2c3bd12.jpg",
     "static/media/unv3.jpg": "/static/media/unv3.165598629c0d06ebf977.jpg",
     "index.html": "/index.html",
-    "main.be16e70b.css.map": "/static/css/main.be16e70b.css.map",
-    "main.0a95ef92.js.map": "/static/js/main.0a95ef92.js.map"
+    "main.fe8f7dd4.css.map": "/static/css/main.fe8f7dd4.css.map",
+    "main.c53bdfd8.js.map": "/static/js/main.c53bdfd8.js.map"
   },
   "entrypoints": [
-    "static/css/main.be16e70b.css",
-    "static/js/main.0a95ef92.js"
+    "static/css/main.fe8f7dd4.css",
+    "static/js/main.c53bdfd8.js"
   ]
 }

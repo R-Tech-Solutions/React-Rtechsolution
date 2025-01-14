@@ -12,9 +12,13 @@ function PosSystem() {
   return (
     <div className="service-page">
       <Poshero/>
+      <br/>
       <Poscontent/>
+      <br/> 
       <SatisfiedClients/>
+      <br/>
       <Contact/>
+      <br/>
       <Team/>
     </div>
   );
