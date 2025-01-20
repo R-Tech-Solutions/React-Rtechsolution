@@ -115,7 +115,7 @@ const ContactUs = () => {
               </div>
               <div className="ml-4">
                 <p className="font-semibold">Phone</p>
-                <p>+94 76 635 6336</p>
+                <p>+94 74 140 1400</p>
               </div>
             </motion.div>
 
