@@ -8,9 +8,8 @@ export const AuthProvider = ({ children }) => {
 
   const login = (username
 , password) => {
-    const correctusername
- = "info@rtech.com";
-    const correctPassword = "1234";
+    const correctusername= "info@rtechsl.com";
+    const correctPassword = "info@1234";
 
     if (username
  === correctusername
