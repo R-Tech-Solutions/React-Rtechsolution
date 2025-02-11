@@ -49,6 +49,15 @@ function App() {
   const isAdminRoute = location.pathname === '/Adminapp';
   const isNotFoundRoute = location.pathname === '*';
 
+  // Block access to any context path that starts with '/admin'
+  if (location.pathname.startsWith('/Adminapp')) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', textAlign: 'center' }}>
+        <h1>Access Denied</h1>
+      </div>
+    );
+  }
+
   const shouldShowHeaderAndFooter = !isAdminRoute && !isNotFoundRoute;
 
   return (
@@ -73,6 +82,7 @@ function App() {
               <Team />
             </>
           } />
+          
           <Route path="/services/app-development" element={<AppDevelopment />} />
           <Route path="/services/web-development" element={<WebDevelopment />} />
           <Route path="/services/pos-system" element={<PosSystem />} />
