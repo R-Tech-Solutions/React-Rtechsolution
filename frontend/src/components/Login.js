@@ -1,17 +1,23 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2"; // Import SweetAlert2
+import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../AuthContext'; 
 
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { login } = useAuth(); // Get login function from context
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleLogin = (event) => {
     event.preventDefault();
 
-    if (username === "info@r-techsl" && password === "info@54321") {
+    if (login(username, password)) {
       Swal.fire({
         icon: "success",
         title: "Login Successful!",

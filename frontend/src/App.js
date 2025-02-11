@@ -33,6 +33,7 @@ import RefundPolicy from './components/RefundPolicy';
 import ReturnsPolicy from './components/ReturnsPolicy';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsandConditions from './components/TermsandCondition';
+import { AuthProvider, ProtectedRoute } from "./AuthContext";
 
 const NotFound = () => {
   return (
@@ -50,13 +51,6 @@ function App() {
   const isNotFoundRoute = location.pathname === '*';
 
   // Block access to any context path that starts with '/admin'
-  if (location.pathname.startsWith('/Adminapp')) {
-    return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', textAlign: 'center' }}>
-        <h1>Access Denied</h1>
-      </div>
-    );
-  }
 
   const shouldShowHeaderAndFooter = !isAdminRoute && !isNotFoundRoute;
 
@@ -93,7 +87,7 @@ function App() {
           <Route path="/ServiceBarWithDetailedCards" element={<ServiceBarWithDetailedCards />} />
           <Route path="/Getstarted" element={<Getstarted />} />
           <Route path="/TestimonialForm" element={<TestimonialForm />} />
-          <Route path="/Adminapp" element={<Adminapp />} />
+          <Route path="/Adminapp" element={<ProtectedRoute><Adminapp /></ProtectedRoute>} />
           <Route path="/Login" element={<Login />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/Carears" element={<Carears />} />
@@ -117,8 +111,10 @@ function App() {
 
 export default function Root() {
   return (
+    <AuthProvider>
     <Router>
       <App />
     </Router>
+    </AuthProvider>
   );
 }
