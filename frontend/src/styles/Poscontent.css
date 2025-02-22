@@ -11,7 +11,7 @@
   border-radius: 8px; /* Optional: Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Shadow for better UI */
   background-color: #fff; /* Background for better visibility */
-  height: 280px; /* Fixed height to accommodate images and text */
+  height: 240px; /* Reduced height to accommodate images and text */
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Ensures spacing between image and text */
@@ -19,7 +19,7 @@
 
 .imageApp {
   width: 100%;
-  height: 160px; /* Adjust height to leave space for text */
+  height: 140px; /* Adjust height to leave space for text */
   object-fit: cover;
   border-radius: 8px;
 }
@@ -33,6 +33,10 @@
   white-space: nowrap; /* Prevent text wrapping */
 }
 
+.services-section {
+  overflow-x: hidden; /* Hide horizontal overflow */
+}
+
 /* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
   .services-grid {
@@ -42,7 +46,7 @@
 
 @media (max-width: 768px) {
   .services-grid {
-    grid-template-columns: repeat(1, 1fr); /* 2 cards per row for mobile */
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row for mobile */
   }
 
   .service-card {
@@ -51,11 +55,17 @@
   }
 
   .imageApp {
-    height: 100px; /* Reduce image size for mobile */
+    height: 120px; /* Reduce image size for mobile */
   }
 
   h3 {
-    font-size: 12px; /* Further reduce font size for mobile */
+    font-size: 14px; /* Adjust font size for mobile */
     margin-top: 8px; /* Adjust spacing for text */
+  }
+}
+
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

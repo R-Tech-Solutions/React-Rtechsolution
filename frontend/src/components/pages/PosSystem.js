@@ -6,12 +6,14 @@ import Contact from '../ContactUs'
 import '../../styles/pages/Services.css';
 import Poshero from '../Pos/Poshero';
 import Poscontent from '../Pos/Poscontent';
-
+import PosBlog from '../Pos/PosBlog';
 
 function PosSystem() {
   return (
     <div className="service-page">
       <Poshero/>
+      <br/>
+      <PosBlog/>
       <br/>
       <Poscontent/>
       <br/> 

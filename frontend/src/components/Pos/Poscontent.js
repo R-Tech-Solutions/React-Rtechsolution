@@ -1,140 +1,72 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
-import '../../styles/Poscontent.css';
 import POS1 from '../../assets/images/Retail POS.jpg';
 import POS2 from '../../assets/images/Restaurent POS.jpg';
-import P0S3 from '../../assets/images/Mobile POS.jpg';
-import P0S4 from '../../assets/images/image (3).jpg';
-import P0S5 from '../../assets/images/image (4).jpg';
-import P0S6 from '../../assets/images/image (5).jpg';
-import P0S7 from '../../assets/images/image (6).jpg';
-import P0S8 from '../../assets/images/image (7).jpg';
-import P0S9 from '../../assets/images/image (8).jpg';
-import P0S10 from'../../assets/images/image (9).jpg';
-import Web from "../../assets/images/web-dev.png";
+import POS3 from '../../assets/images/Mobile POS.jpg';
+import POS4 from '../../assets/images/image (3).jpg';
+import POS5 from '../../assets/images/image (4).jpg';
+import POS6 from '../../assets/images/image (5).jpg';
+import POS7 from '../../assets/images/image (6).jpg';
+import POS8 from '../../assets/images/image (7).jpg';
+import POS9 from '../../assets/images/image (8).jpg';
+import POS10 from '../../assets/images/image (9).jpg';
 
+const posModules = [
+  { img: POS1, title: 'Supermarket POS Systems' },
+  { img: POS2, title: 'Restaurant POS Systems' },
+  { img: POS3, title: 'Groceries POS Systems' },
+  { img: POS4, title: 'Saloon & Spa POS Systems' },
+  { img: POS9, title: 'Enterprice POS Systems' },
+  { img: POS10, title: 'E-commerce Pos Systems' },
+  { img: POS10, title: 'Mobile POS Systems' },
+  { img: POS10, title: 'Online Shop POS Systems' },
+  { img: POS10, title: 'Cloud Based POS Systems' },
+  { img: POS10, title: 'Pharmacy POS Systems' },
+  { img: POS10, title: 'Cafes POS Systems' },
+  { img: POS10, title: 'Mobile Shops POS Systems' },
+  { img: POS10, title: 'Electronic Shops POS Systems' },
+  { img: POS10, title: 'Computer Shops POS Systems' },
+  { img: POS10, title: 'Repair Shops POS Systems' },
+  { img: POS10, title: 'Textile Shops POS Systems' },
+  { img: POS10, title: 'Hotels POS Systems' },
+  { img: POS10, title: 'Clinics POS Systems' },
+  { img: POS10, title: 'Book Shop POS Systems' },
+  { img: POS10, title: 'Gym POS Systems' },
+  { img: POS10, title: 'Delivery Buisness POS Systems' },
+  { img: POS10, title: 'Accademy POS Systems' },
+  { img: POS10, title: 'E Learning' },
+];
 
 function Poscontent() {
   return (
     <div>
-      <div>
-            <div className="services-section">
-            
-            <div className="services-grid">
-            <Link to="" className="service-card" style={{ display: 'block', textAlign: 'center' }}>
-            <img
-              src={POS1}
-               alt="Retail POS Systems"
-               className="imageApp"
-              style={{
-               width: '100%', // Make the image fit the width of the card
-                height: '80%', // Maintain aspect ratio
-                 objectFit: 'cover', // Ensure the image fills the container proportionally
-                  borderRadius: '8px', // Optional: Add rounded corners
-                }}
-                 />
-               <h3>Retail POS Systems</h3>
-              </Link>
+      <h1 className="text-[#005880] text-4xl md:text-[64px] font-bold font-['Inria_Serif'] text-center">
+      Explore POS Systems Across Various Sectors
+      </h1>
+      <div className="mb-10"></div>
       
-              
-              <Link to="" className="service-card" style={{ display: 'block', textAlign: 'center' }}>
-                <img src={POS2} alt=" Restaurant POS Systems" className="imageApp"
-                style={{
-                  width: '100%', 
-                   height: '80%', 
-                    objectFit: 'cover',
-                     borderRadius: '8px', 
-                   }}
-                />
-                
-                <h3> Restaurant POS Systems</h3>
-              </Link>
-              
-              <Link to="" className="service-card" style={{ display: 'block', textAlign: 'center' }}>
-                <img src={P0S3} alt="Mobile POS" className="imageApp"
-                style={{
-                  width: '100%', 
-                   height: '80%', 
-                    objectFit: 'cover',
-                     borderRadius: '8px', 
-                   }} />
-                <h3>Mobile POS (mPOS)</h3>
-              </Link>
-              <Link to="" className="service-card" style={{ display: 'block', textAlign: 'center' }}>
-                <img src={P0S4} alt="Cloud- POS" className="imageApp"
-                style={{
-                  width: '100%', 
-                   height: '80%', 
-                    objectFit: 'cover',
-                     borderRadius: '8px', 
-                   }} />
-                <h3>Cloud-Based POS</h3>
-              </Link>
-              <Link to="" className="service-card" style={{ display: 'block', textAlign: 'center' }}>
-                <img src={P0S5} alt="Kiosks" className="imageApp"
-                style={{
-                  width: '100%', 
-                   height: '80%', 
-                    objectFit: 'cover',
-                     borderRadius: '8px', 
-                   }} />
-                <h3>Self-Service Kiosks</h3>
-              </Link>
-              <Link to="" className="service-card" style={{ display: 'block', textAlign: 'center' }}>
-                <img src={P0S6} alt="e-comerce" className="imageApp"
-                style={{
-                  width: '100%', 
-                   height: '80%', 
-                    objectFit: 'cover',
-                     borderRadius: '8px', 
-                   }} />
-                <h3>eCommerce POS Systems</h3>
-              </Link>
-              <Link to="" className="service-card" style={{ display: 'block', textAlign: 'center' }}>
-                <img src={P0S7} alt="saloonspa" className="imageApp"
-                style={{
-                  width: '100%', 
-                   height: '80%', 
-                    objectFit: 'cover',
-                     borderRadius: '8px', 
-                   }} />
-                <h3>Salon and Spa POS Systems</h3>
-              </Link>
-              <Link to="" className="service-card" style={{ display: 'block', textAlign: 'center' }}>
-                <img src={P0S8} alt="Enterprice" className="imageApp"
-                style={{
-                  width: '100%', 
-                   height: '80%', 
-                    objectFit: 'cover',
-                     borderRadius: '8px', 
-                   }} />
-                <h3>Enterprise POS Systems</h3>
-              </Link>
-              <Link to="" className="service-card" style={{ display: 'block', textAlign: 'center' }}>
-                <img src={P0S9} alt="on-premisesPOS" className="imageApp"
-                style={{
-                  width: '100%', 
-                   height: '80%', 
-                    objectFit: 'cover',
-                     borderRadius: '8px', 
-                   }} />
-                <h3>On-Premise POS</h3>
-              </Link>
-              <Link to="" className="service-card" style={{ display: 'block', textAlign: 'center' }}>
-                <img src={P0S10} alt="industrypos" className="imageApp"
-                style={{
-                  width: '100%', 
-                   height: '80%', 
-                    objectFit: 'cover',
-                     borderRadius: '8px', 
-                   }} />
-                <h3>Industry-Specific POS Systems</h3>
-              </Link>
-            </div>
-          </div>
-          </div>
+      <div className="overflow-x-hidden">
+        <div className="grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+          {posModules.map((pos, index) => (
+            <Link
+              key={index}
+              to=""
+              className="block text-center p-2 border border-gray-300 rounded-lg shadow-md bg-white h-48 flex flex-col justify-between"
+            >
+              <img
+                src={pos.img}
+                alt={pos.title}
+                className="w-full h-24 object-cover rounded-lg"
+              />
+              <h3 className="text-xs font-medium mt-2 overflow-hidden text-ellipsis whitespace-nowrap">
+                {pos.title}
+              </h3>
+            </Link>
+          ))}
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Poscontent
+export default Poscontent;
