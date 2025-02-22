@@ -264,7 +264,7 @@ const developmentTeam = [
     whatsapp: 'https://wa.me/5566778899',
   },
   {
-    _id: '6',
+    _id: '7',
     name: 'Ms. Nihma Nusrath',
     position: 'Java & MySQL Developer',
     image: Id02,
@@ -273,9 +273,18 @@ const developmentTeam = [
     whatsapp: 'https://wa.me/5566778899',
   },
   {
-    _id: '6',
+    _id: '8',
     name: 'Mr. Nazad',
     position: 'PHP (Laravel) Developer',
+    image: Id01,
+    linkedin: 'https://linkedin.com/in/bobbrown',
+    website: 'https://bobbrown.dev',
+    whatsapp: 'https://wa.me/5566778899',
+  },
+  {
+    _id: '9',
+    name: 'Mr. Awishka Madushan',
+    position: 'Full Stack Mobile Developer',
     image: Id01,
     linkedin: 'https://linkedin.com/in/bobbrown',
     website: 'https://bobbrown.dev',

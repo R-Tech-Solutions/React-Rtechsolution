@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { Monitor, Package2, FileText, ShoppingCart, Users, UserCog, BarChart3, PlusCircle, Sparkles,Clipboard, Calendar, MessageCircle, BarChart, Grid, FileLock, GitPullRequest  } from 'lucide-react';
+import { Monitor, Package2, FileText, ShoppingCart, Users, UserCog, BarChart3, PlusCircle, Clipboard, Calendar, MessageCircle, Grid, FileLock, GitPullRequest  } from 'lucide-react';
 import anime from 'animejs';
+import { Factory, Receipt, Wrench, Book, Briefcase} from "lucide-react";
+
 
 const modules = [
     {
@@ -76,7 +78,7 @@ const modules = [
         ]
     },
     {
-        icon: <Sparkles className="w-6 h-6 md:w-10 md:h-10 text-white" />,
+        icon: <Factory className="w-6 h-6 md:w-10 md:h-10 text-white" />,
         title: "Manufacturing Module",
         features: [
             "✅ Component Management: Add missing parts on the go.",
@@ -84,7 +86,7 @@ const modules = [
         ]
     },
     {
-        icon: <Clipboard className="w-6 h-6 md:w-10 md:h-10 text-white" />,
+        icon: <Receipt className="w-6 h-6 md:w-10 md:h-10 text-white" />,
         title: "Expenses Module",
         features: [
             "✅ Better Expense Planning: Track budgets and spending.",
@@ -92,7 +94,7 @@ const modules = [
         ]
     },
     {
-        icon: <Clipboard className="w-6 h-6 md:w-10 md:h-10 text-white" />,
+        icon: <Users className="w-6 h-6 md:w-10 md:h-10 text-white" />,
         title: "Employees Module",
         features: [
             "✅ Overtime Reports: Track and manage extra working hours.",
@@ -101,7 +103,7 @@ const modules = [
         ]
     },
     {
-        icon: <Calendar className="w-6 h-6 md:w-10 md:h-10 text-white" />,
+        icon: <Wrench className="w-6 h-6 md:w-10 md:h-10 text-white" />,
         title: "Maintenance Module",
         features: [
             "✅ Improved Scheduling: Plan and track maintenance activities.",
@@ -128,7 +130,7 @@ const modules = [
         ]
     },
     {
-        icon: <BarChart className="w-6 h-6 md:w-10 md:h-10 text-white" />,
+        icon: <Calendar className="w-6 h-6 md:w-10 md:h-10 text-white" />,
         title: "Calendar Module",
         features: [
             "✅ User-Friendly Scheduler: Simple meeting and event planning.",
@@ -146,7 +148,7 @@ const modules = [
         ]
     },
     {
-        icon: <MessageCircle className="w-6 h-6 md:w-10 md:h-10 text-white" />,
+        icon: <Book className="w-6 h-6 md:w-10 md:h-10 text-white" />,
         title: "Contacts Module",
         features: [
             "✅ Duplicate Contact Merging: Remove redundant entries.",
@@ -182,7 +184,7 @@ const modules = [
         ]
     },
     {
-        icon: <GitPullRequest className="w-6 h-6 md:w-10 md:h-10 text-white" />,
+        icon: <Briefcase className="w-6 h-6 md:w-10 md:h-10 text-white" />,
         title: "Online Jobs Module",
         features: [
             "✅ Automated Job Posting: Share job listings across platforms.",
@@ -191,7 +193,7 @@ const modules = [
         ]
     },
     {
-        icon: <FileLock className="w-6 h-6 md:w-10 md:h-10 text-white" />,
+        icon: <FileText className="w-6 h-6 md:w-10 md:h-10 text-white" />,
         title: "Employee Contracts Module",
         features: [
             "✅ Digital Contracts: Create and store employee contracts online.",
@@ -241,7 +243,7 @@ function Page() {
                     >
                         <div className="absolute inset-0 bg-[#005880] rounded-lg shadow-xl translate-x-1 translate-y-1 md:translate-x-2 md:translate-y-2"></div>
                         <div className="relative bg-white p-2 md:p-6 rounded-lg border-2 border-[#005880] h-full">
-                            <div className="icon-circle absolute -top-3 -left-3 bg-[#005880] p-1 md:p-3 rounded-full h-[40px] w-[40px] md:h-[70px] md:w-[70px] flex items-center justify-center shadow-lg">
+                            <div className="icon-circle absolute -top-8 -left-3 bg-[#005880] p-1 md:p-3 rounded-full h-[50px] w-[50px] md:h-[70px] md:w-[70px] flex items-center justify-center shadow-lg">
                                 {module.icon}
                             </div>
                             <div className="card-content pt-6 md:pt-8 pl-2 md:pl-4">
