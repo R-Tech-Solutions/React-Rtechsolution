@@ -283,7 +283,7 @@ const developmentTeam = [
   },
   {
     _id: '9',
-    name: 'Mr. Avishka Madushan',
+    name: 'Mr. Avishka Madhushan',
     position: 'Full Stack Mobile Developer',
     image: Id01,
     linkedin: 'https://linkedin.com/in/bobbrown',

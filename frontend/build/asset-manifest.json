@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.46b72d16.css",
-    "main.js": "/static/js/main.dd3f3390.js",
+    "main.css": "/static/css/main.b0009406.css",
+    "main.js": "/static/js/main.7dd4349d.js",
     "static/media/Netgear.jpg": "/static/media/Netgear.db15a394807baa0329bf.jpg",
     "static/media/Ruijie1.jpg": "/static/media/Ruijie1.dd8d5eabc9647d80c6ba.jpg",
     "static/media/Background1.mp4": "/static/media/Background1.80abfd69aff6557991fb.mp4",
@@ -74,11 +74,11 @@
     "static/media/unv2.jpg": "/static/media/unv2.504656c3dfb7b2c3bd12.jpg",
     "static/media/unv3.jpg": "/static/media/unv3.165598629c0d06ebf977.jpg",
     "index.html": "/index.html",
-    "main.46b72d16.css.map": "/static/css/main.46b72d16.css.map",
-    "main.dd3f3390.js.map": "/static/js/main.dd3f3390.js.map"
+    "main.b0009406.css.map": "/static/css/main.b0009406.css.map",
+    "main.7dd4349d.js.map": "/static/js/main.7dd4349d.js.map"
   },
   "entrypoints": [
-    "static/css/main.46b72d16.css",
-    "static/js/main.dd3f3390.js"
+    "static/css/main.b0009406.css",
+    "static/js/main.7dd4349d.js"
   ]
 }
