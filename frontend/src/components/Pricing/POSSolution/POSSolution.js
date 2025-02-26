@@ -1,16 +1,10 @@
 import React, { useState } from "react";
-const images = [
-  require("../../../assets/Pos/1.jpg"),
-  require("../../../assets/Pos/2.jpg"),
-  require("../../../assets/Pos/3.jpg"),
-  require("../../../assets/Pos/4.jpg"),
-  require("../../../assets/Pos/5.jpg"),
-];
 
 function POSPackages() {
   const packages = [
     {
       title: "Starter Super Market POS System",
+      image: require("../../../assets/Pos/1.jpg"),
       features: [
         "Cloud Based Setup (Online Access From Anywhere & Any Device)",
         "2 Virtual CPU",
@@ -40,6 +34,7 @@ function POSPackages() {
     },
     {
       title: "Starter Electronic Shops POS System",
+      image: require("../../../assets/Pos/2.jpg"),
       features: [
         "Cloud Based Setup (Online Access From Anywhere & Any Device)",
         "1 Virtual CPU",
@@ -69,6 +64,7 @@ function POSPackages() {
     },
     {
       title: "Small Scale Restaurant POS System",
+      image: require("../../../assets/Pos/3.jpg"),
       features: [
         "Cloud Based Setup (Online Access From Anywhere & Any Device)",
         "1 Virtual CPU",
@@ -97,11 +93,12 @@ function POSPackages() {
         "Full POS Package With Cash-Draw , Printer , PC , Touch Screen Monitor , Keyboard , Mouse , 2D Bar-Code Reader : 155,000/- [105,000 (For Hardware) +50,000 (For Software)]",
     },
     {
-      title: "Small Scale Restaurant POS System",
+      title: "Large Scale Resturent POS System",
+      image: require("../../../assets/Pos/4.jpg"),
       features: [
         "Cloud Based Setup (Online Access From Anywhere & Any Device)",
-        "1 Virtual CPU",
-        "2 GB",
+        "2 Virtual CPU",
+        "4 GB",
         "No Setup Fee (Free System Setup)",
         "Initial Training ( Free Training )",
         "Sales Reporting Feature",
@@ -115,18 +112,19 @@ function POSPackages() {
       pricing: {
         monthly: {
           single: "5000/- (Single User)",
-          additional: "2500/- (Additional User)",
+          additional: "5000/- (Additional User)",
         },
         annually: {
           single: "50000/- (Single User)",
-          additional: "25000/- (Additional User)",
+          additional: "50000/- (Additional User)",
         },
       },
       package:
         "Full POS Package With Cash-Draw , Printer , PC , Touch Screen Monitor , Keyboard , Mouse , 2D Bar-Code Reader : 155,000/- [105,000 (For Hardware) +50,000 (For Software)]",
     },
     {
-      title: "Small Scale Restaurant POS System",
+      title: "Small Scale Textiles POS System",
+      image: require("../../../assets/Pos/5.jpg"),
       features: [
         "Cloud Based Setup (Online Access From Anywhere & Any Device)",
         "1 Virtual CPU",
@@ -144,11 +142,221 @@ function POSPackages() {
       pricing: {
         monthly: {
           single: "5000/- (Single User)",
-          additional: "2500/- (Additional User)",
+          additional: "2000/- (Additional User)",
         },
         annually: {
           single: "50000/- (Single User)",
-          additional: "25000/- (Additional User)",
+          additional: "20000/- (Additional User)",
+        },
+      },
+      package:
+        "Full POS Package With Cash-Draw , Printer , PC , Touch Screen Monitor , Keyboard , Mouse , 2D Bar-Code Reader : 155,000/- [105,000 (For Hardware) +50,000 (For Software)]",
+    },
+    {
+      title: "Large Scale Textiles POS System",
+      image: require("../../../assets/Pos/1.jpg"),
+      features: [
+        "Cloud Based Setup (Online Access From Anywhere & Any Device)",
+        "2 Virtual CPU",
+        "4 GB",
+        "No Setup Fee (Free System Setup)",
+        "Initial Training ( Free Training )",
+        "Sales Reporting Feature",
+        "Point Of Sales Feature",
+        "Inventory ( Store Management) Feature",
+        "Expenses Management Feature",
+        "CRM Feature",
+        "Employee Management Feature",
+        "Purchasing And Supplier Management Feature",
+      ],
+      pricing: {
+        monthly: {
+          single: "5000/- (Single User)",
+          additional: "5000/- (Additional User)",
+        },
+        annually: {
+          single: "50000/- (Single User)",
+          additional: "50000/- (Additional User)",
+        },
+      },
+      package:
+        "Full POS Package With Cash-Draw , Printer , PC , Touch Screen Monitor , Keyboard , Mouse , 2D Bar-Code Reader : 155,000/- [105,000 (For Hardware) +50,000 (For Software)]",
+    },
+    {
+      title: "Starter Saloon POS System",
+      image: require("../../../assets/Pos/2.jpg"),
+      features: [
+        "Cloud Based Setup (Online Access From Anywhere & Any Device)",
+        "1 Virtual CPU",
+        "2 GB",
+        "No Setup Fee (Free System Setup)",
+        "Initial Training ( Free Training )",
+        "Sales Reporting Feature",
+        "Point Of Sales Feature",
+        "Inventory ( Store Management) Feature",
+        "Expenses Management Feature",
+        "CRM Feature",
+        "Employee Management Feature",
+        "Purchasing And Supplier Management Feature",
+      ],
+      pricing: {
+        monthly: {
+          single: "5000/- (Single User)",
+          additional: "2000/- (Additional User)",
+        },
+        annually: {
+          single: "50000/- (Single User)",
+          additional: "20000/- (Additional User)",
+        },
+      },
+      package:
+        "Full POS Package With Cash-Draw , Printer , PC , Touch Screen Monitor , Keyboard , Mouse , 2D Bar-Code Reader : 155,000/- [105,000 (For Hardware) +50,000 (For Software)]",
+    },
+    {
+      title: "Small Scale Pharmacy POS System",
+      image: require("../../../assets/Pos/3.jpg"),
+      features: [
+        "Cloud Based Setup (Online Access From Anywhere & Any Device)",
+        "1 Virtual CPU",
+        "2 GB",
+        "No Setup Fee (Free System Setup)",
+        "Initial Training ( Free Training )",
+        "Sales Reporting Feature",
+        "Point Of Sales Feature",
+        "Inventory ( Store Management) Feature",
+        "Expenses Management Feature",
+        "CRM Feature",
+        "Employee Management Feature",
+        "Purchasing And Supplier Management Feature",
+      ],
+      pricing: {
+        monthly: {
+          single: "5000/- (Single User)",
+          additional: "2000/- (Additional User)",
+        },
+        annually: {
+          single: "50000/- (Single User)",
+          additional: "20000/- (Additional User)",
+        },
+      },
+      package:
+        "Full POS Package With Cash-Draw , Printer , PC , Touch Screen Monitor , Keyboard , Mouse , 2D Bar-Code Reader : 155,000/- [105,000 (For Hardware) +50,000 (For Software)]",
+    },
+    {
+      title: "Large Scale Pharmacy POS System",
+      image: require("../../../assets/Pos/4.jpg"),
+      features: [
+        "Cloud Based Setup (Online Access From Anywhere & Any Device)",
+        "2 Virtual CPU",
+        "4 GB",
+        "No Setup Fee (Free System Setup)",
+        "Initial Training ( Free Training )",
+        "Sales Reporting Feature",
+        "Point Of Sales Feature",
+        "Inventory ( Store Management) Feature",
+        "Expenses Management Feature",
+        "CRM Feature",
+        "Employee Management Feature",
+        "Purchasing And Supplier Management Feature",
+      ],
+      pricing: {
+        monthly: {
+          single: "5000/- (Single User)",
+          additional: "5000/- (Additional User)",
+        },
+        annually: {
+          single: "50000/- (Single User)",
+          additional: "50000/- (Additional User)",
+        },
+      },
+      package:
+        "Full POS Package With Cash-Draw , Printer , PC , Touch Screen Monitor , Keyboard , Mouse , 2D Bar-Code Reader : 155,000/- [105,000 (For Hardware) +50,000 (For Software)]",
+    },
+    {
+      title: "Starter BookShops POS System",
+      image: require("../../../assets/Pos/5.jpg"),
+      features: [
+        "Cloud Based Setup (Online Access From Anywhere & Any Device)",
+        "1 Virtual CPU",
+        "2 GB",
+        "No Setup Fee (Free System Setup)",
+        "Initial Training ( Free Training )",
+        "Sales Reporting Feature",
+        "Point Of Sales Feature",
+        "Inventory ( Store Management) Feature",
+        "Expenses Management Feature",
+        "CRM Feature",
+        "Employee Management Feature",
+        "Purchasing And Supplier Management Feature",
+      ],
+      pricing: {
+        monthly: {
+          single: "5000/- (Single User)",
+          additional: "2000/- (Additional User)",
+        },
+        annually: {
+          single: "50000/- (Single User)",
+          additional: "20000/- (Additional User)",
+        },
+      },
+      package:
+        "Full POS Package With Cash-Draw , Printer , PC , Touch Screen Monitor , Keyboard , Mouse , 2D Bar-Code Reader : 155,000/- [105,000 (For Hardware) +50,000 (For Software)]",
+    },
+    {
+      title: "Starter Gym POS System",
+      image: require("../../../assets/Pos/1.jpg"),
+      features: [
+        "Cloud Based Setup (Online Access From Anywhere & Any Device)",
+        "1 Virtual CPU",
+        "2 GB",
+        "No Setup Fee (Free System Setup)",
+        "Initial Training ( Free Training )",
+        "Sales Reporting Feature",
+        "Point Of Sales Feature",
+        "Inventory ( Store Management) Feature",
+        "Expenses Management Feature",
+        "CRM Feature",
+        "Employee Management Feature",
+        "Purchasing And Supplier Management Feature",
+      ],
+      pricing: {
+        monthly: {
+          single: "5000/- (Single User)",
+          additional: "2000/- (Additional User)",
+        },
+        annually: {
+          single: "50000/- (Single User)",
+          additional: "20000/- (Additional User)",
+        },
+      },
+      package:
+        "Full POS Package With Cash-Draw , Printer , PC , Touch Screen Monitor , Keyboard , Mouse , 2D Bar-Code Reader : 155,000/- [105,000 (For Hardware) +50,000 (For Software)]",
+    },
+    {
+      title: "Starter Academy POS System",
+      image: require("../../../assets/Pos/2.jpg"),
+      features: [
+        "Cloud Based Setup (Online Access From Anywhere & Any Device)",
+        "1 Virtual CPU",
+        "2 GB",
+        "No Setup Fee (Free System Setup)",
+        "Initial Training ( Free Training )",
+        "Sales Reporting Feature",
+        "Point Of Sales Feature",
+        "Inventory ( Store Management) Feature",
+        "Expenses Management Feature",
+        "CRM Feature",
+        "Employee Management Feature",
+        "Purchasing And Supplier Management Feature",
+      ],
+      pricing: {
+        monthly: {
+          single: "5000/- (Single User)",
+          additional: "2000/- (Additional User)",
+        },
+        annually: {
+          single: "50000/- (Single User)",
+          additional: "2  0000/- (Additional User)",
         },
       },
       package:
@@ -156,8 +364,7 @@ function POSPackages() {
     },
   ];
 
-  const [expanded, setExpanded] = useState(null);
-
+  const [expanded, setExpanded] = useState(null); 
   const toggleExpand = (index) => {
     setExpanded((prev) => (prev === index ? null : index));
   };
@@ -177,7 +384,7 @@ function POSPackages() {
 
               <div className="w-full h-32 mx-auto mb-4">
                 <img
-                  src={images[index]}
+                  src={pkg.image}
                   alt="POS System"
                   className="w-full h-full object-cover rounded-lg"
                 />
