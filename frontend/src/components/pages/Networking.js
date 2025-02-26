@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import NetHero from '../NetHero';
 import SatisfiedClients from '../SatisfiedClients';
 import FAQ from '../FAQ';
@@ -7,9 +7,12 @@ import Team from '../Team';
 import Cisco from '../../assets/images/cisco1.jpg';
 import Ruijie from '../../assets/images/Ruijie1.jpg';
 import Netgear from '../../assets/images/Netgear.jpg';
-
+import Free from "../FreeApp/FreeApp"
 
 function Networking() {
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
   const data = [
     {
       brand: "Cisco",
@@ -121,6 +124,7 @@ function Networking() {
           ))}
         </div>
       </section>
+      <Free />
       <SatisfiedClients />
       <FAQ />
       <Team />

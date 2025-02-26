@@ -6,7 +6,7 @@ const TestimonialSchema = new mongoose.Schema({
   company: { type: String, required: true },
   message: { type: String, required: true },
   rating: { type: Number, required: true, min: 1, max: 5 },
-  image: { type: String },  // Store relative image path
+  image: { type: String, required: true }, // Store base64 image string
 }, { timestamps: true });
 
 module.exports = mongoose.model('Testimonial', TestimonialSchema);

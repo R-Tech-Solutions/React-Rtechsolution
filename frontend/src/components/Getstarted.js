@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import '../styles/Getstarted.css';
 import { backEndURL } from "../Backendurl";
+import Free from "./FreeApp/FreeApp"
+
 
 const Getstarted = () => {
   const [selectedService, setSelectedService] = useState(null);
@@ -113,6 +115,7 @@ const Getstarted = () => {
 
   return (
     <div className="service-page bg-[#005880] font-[Inter]">
+      <Free />
       <main className="main-container">
         <div className="bg-white rounded-[30px] p-8 shadow-lg">
           <h1 className="welcome-text" id="welcomeText">Welcome to R-tech Solution</h1>

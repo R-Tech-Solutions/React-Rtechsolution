@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import {
   FaHome,
   FaBars,
+  FaAppStore,
   FaTachometerAlt,
   FaStar,
   FaUsers,
   FaDollarSign,
   FaBlog,
-  FaPhone,
   FaRocket,
   FaArrowLeft,
   FaTimes,
@@ -15,6 +15,7 @@ import {
 import TestimonialsManager from "./components/admin/TestimonialForm";
 import Carears from "./components/Carears";
 import TeamManagement from "./components/admin/TeamManagement";
+import App from "./components/admin/Appstore";
 
 const Adminapp = () => {
   const [activePage, setActivePage] = useState("dashboard");
@@ -35,8 +36,8 @@ const Adminapp = () => {
         return <h1 className="text-center text-2xl mt-10">Welcome to Pricing</h1>;
       case "blog":
         return <h1 className="text-center text-2xl mt-10">Welcome to Blog</h1>;
-      case "contactUs":
-        return <h1 className="text-center text-2xl mt-10">Welcome to Contact Us</h1>;
+      case "App":
+        return <App />;
       case "getStarted":
         return <h1 className="text-center text-2xl mt-10">Welcome to Get Started</h1>;
       case "home":
@@ -72,7 +73,7 @@ const Adminapp = () => {
             { page: "team", icon: FaUsers, label: "Team" },
             { page: "pricing", icon: FaDollarSign, label: "Pricing" },
             { page: "blog", icon: FaBlog, label: "Blog" },
-            { page: "contactUs", icon: FaPhone, label: "Contact Us" },
+            { page: "App", icon: FaAppStore, label: "App" },
             { page: "getStarted", icon: FaRocket, label: "Get Started" },
             { page: "home", icon: FaHome, label: "Home" },
           ].map(({ page, icon: Icon, label }) => (

@@ -39,7 +39,9 @@ const satisfiedClientsRouter = require('./routes/satisfiedClientRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const getStartedRoutes = require('./routes/getStartedRoutes');
 const applyRoutes = require('./routes/applyRoutes');
+const appAdminRoutes = require("./routes/AppAdminRoutes");
 
+app.use("/api/app", appAdminRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api', getStartedRoutes);
 // app.use('/api/send-email', emailRoutes);

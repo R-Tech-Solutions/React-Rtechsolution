@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -34,7 +34,8 @@ import ReturnsPolicy from './components/ReturnsPolicy';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsandConditions from './components/TermsandCondition';
 import { AuthProvider, ProtectedRoute } from "./AuthContext";
-
+import FreeApp from "./components/FreeApp/FreeApp"
+import FreeAppClickeed from "./components/FreeApp/FreeAppClicked";              
 const NotFound = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', textAlign: 'center' }}>
@@ -54,6 +55,12 @@ function App() {
 
   const shouldShowHeaderAndFooter = !isAdminRoute && !isNotFoundRoute;
 
+  useEffect(() => {
+    if (location.pathname === '/') {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname]);
+
   return (
     <div className="app">
       {/* Conditionally render Header */}
@@ -64,6 +71,7 @@ function App() {
           <Route path="/" element={
             <>
               <Hero />
+              <FreeApp />
               <Services />
               <Stats />
               <OurProcess />
@@ -96,6 +104,8 @@ function App() {
           <Route path="/ReturnsPolicy" element={<ReturnsPolicy />} />
           <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
           <Route path="/TermsandConditions" element={<TermsandConditions />} />
+          <Route path="/downloads" element={<FreeAppClickeed />} />
+
           {/* Fallback Route */}
           <Route path="*" element={<NotFound />} />
         </Routes>

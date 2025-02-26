@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { imageURL, backEndURL } from "../../Backendurl";
-import { FiEdit, FiTrash, FiSearch, FiChevronDown } from "react-icons/fi";
+import { FiEdit, FiTrash } from "react-icons/fi";
 import { MdAddCircle, MdViewList } from "react-icons/md";
 import Modal from "react-modal";
 
@@ -46,27 +46,32 @@ const TestimonialsManager = () => {
   };
 
   const handleImageChange = (e) => {
-    setImage(e.target.files[0]);
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result); // Store the base64 string
+      };
+      reader.readAsDataURL(file);
+    }
   };
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    const formDataToSend = new FormData();
-    Object.keys(formData).forEach((key) => formDataToSend.append(key, formData[key]));
-    if (image) formDataToSend.append("image", image);
-
+  
+    const formDataToSend = { ...formData, image }; // Include the base64 image
+  
     const url = editingTestimonial
       ? `${backEndURL}/api/testimonials/${editingTestimonial._id}`
       : `${backEndURL}/api/testimonials`;
-
+  
     try {
       await axios({
         method: editingTestimonial ? "put" : "post",
         url,
         data: formDataToSend,
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: { "Content-Type": "application/json" }, // JSON payload
       });
-
+  
       Swal.fire(
         editingTestimonial ? "Updated!" : "Added!",
         `Testimonial ${editingTestimonial ? "updated" : "added"} successfully!`,
@@ -137,7 +142,7 @@ const TestimonialsManager = () => {
     return filteredTestimonials.map((testimonial) => (
       <div key={testimonial._id} className="border rounded-lg shadow p-4 bg-white hover:shadow-lg transition">
         <img
-          src={testimonial.image ? `${imageURL}${testimonial.image}` : "/images/default-avatar.png"}
+          src={testimonial.image ? `${testimonial.image}` : "/images/default-avatar.png"}
           alt={testimonial.name}
           className="w-full h-32 object-cover rounded mb-4"
         />

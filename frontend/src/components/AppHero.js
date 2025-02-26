@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaMobileAlt, FaCode, FaRocket } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import './ServiceHero.css';
-
+import Hero from "../assets/videos/853919-hd_1920_1080_25fps.mp4"
 const floatingAnimation = {
   initial: { y: 0 },
   animate: {
@@ -76,6 +76,10 @@ const ServiceHero = () => {
           >
             <div className="phone-frame">
               <div className="phone-screen">
+                <video autoPlay loop muted className="phone-video">
+                  <source src={Hero} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
                 <motion.div className="floating-icon icon1">
                   <FaMobileAlt />
                 </motion.div>

@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle } from 'lucide-react';
-import { FaExternalLinkAlt, FaEye } from 'react-icons/fa';
-import App from '../assets/images/app-dev.png';
+import { CheckCircle } from 'lucide-react';
+import { FaEye } from 'react-icons/fa';
 import Pro1 from '../assets/images/project1.jpg';
 import Pro2 from '../assets/images/project2.jpg';
 import Pro3 from '../assets/images/project3.jpg';
@@ -96,6 +95,10 @@ const categories = [
 ];
 
 export default function Portfolio() {
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
   const [activeCategory, setActiveCategory] = useState('all');
 
   const filteredProjects =

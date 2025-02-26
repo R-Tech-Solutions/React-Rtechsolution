@@ -1,9 +1,5 @@
 const Testimonial = require('../models/Testimonial');
-const multer = require('multer');
 const path = require('path');
-const { upload } = require('../utils/multerConfig');
-
-
 
 // Fetch all testimonials
 exports.getTestimonials = async (req, res) => {
@@ -16,38 +12,30 @@ exports.getTestimonials = async (req, res) => {
 };
 
 exports.createTestimonial = async (req, res) => {
-  const uploadSingle = upload.single('image');
+  const { name, role, company, message, rating, image } = req.body;
 
-  uploadSingle(req, res, async (err) => {
-    if (err) {
-      console.error('Multer Error:', err.message);
-      return res.status(400).json({ error: err.message });
-    }
+  if (!name || !role || !company || !message || !rating || !image) {
+    return res.status(400).json({ error: 'All required fields must be provided' });
+  }
 
-    const { name, role, company, message, rating } = req.body;
+  try {
+    const newTestimonial = new Testimonial({
+      name,
+      role,
+      company,
+      message,
+      rating,
+      image, // Store base64 string
+    });
 
-    if (!name || !role || !company || !message || !rating) {
-      return res.status(400).json({ error: 'All required fields must be provided' });
-    }
-
-    try {
-      const newTestimonial = new Testimonial({
-        name,
-        role,
-        company,
-        message,
-        rating,
-        image: req.file ? `/uploads/testimonials/${req.file.filename}` : null,
-      });
-
-      await newTestimonial.save();
-      res.status(201).json({ success: true, testimonial: newTestimonial });
-    } catch (error) {
-      console.error('Save Error:', error.message);
-      res.status(500).json({ error: 'Failed to create testimonial' });
-    }
-  });
+    await newTestimonial.save();
+    res.status(201).json({ success: true, testimonial: newTestimonial });
+  } catch (error) {
+    console.error('Save Error:', error.message);
+    res.status(500).json({ error: 'Failed to create testimonial' });
+  }
 };
+
 
 exports.deleteTestimonial = async (req, res) => {
   const { id } = req.params; // Get the ID from the URL params
@@ -60,7 +48,7 @@ exports.deleteTestimonial = async (req, res) => {
     }
 
     // Delete the testimonial from the database
-    await Testimonial.findByIdAndDelete(id);  // This will remove the testimonial from the database
+    await Testimonial.findByIdAndDelete(id);
 
     res.status(200).json({ success: true, message: 'Testimonial deleted successfully' });
   } catch (error) {
