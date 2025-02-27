@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { FaMobileAlt, FaCode, FaRocket } from 'react-icons/fa';
 import '../ServiceHero.css';
-import Hero from "../../assets/videos/853919-hd_1920_1080_25fps.mp4";
+import Hero from "../../assets/videos/Welcome to.mp4";
+import { backEndURL } from "../../Backendurl";
 
 function AppLanding() {
     const [apps, setApps] = useState([]);
@@ -15,7 +16,7 @@ function AppLanding() {
         // Fetch the apps data from backend API
         const fetchApps = async () => {
             try {
-                const response = await fetch("http://localhost:3001/api/app");
+                const response = await fetch(`${backEndURL}/api/app`);
                 const data = await response.json();
                 setApps(data);  // Store the fetched apps data
             } catch (error) {
@@ -147,15 +148,6 @@ const ServiceHero = () => {
                                     <source src={Hero} type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
-                                <motion.div className="floating-icon icon1">
-                                    <FaMobileAlt />
-                                </motion.div>
-                                <motion.div className="floating-icon icon2">
-                                    <FaCode />
-                                </motion.div>
-                                <motion.div className="floating-icon icon3">
-                                    <FaRocket />
-                                </motion.div>
                             </div>
                         </div>
                     </motion.div>

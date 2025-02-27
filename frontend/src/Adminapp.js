@@ -16,11 +16,25 @@ import TestimonialsManager from "./components/admin/TestimonialForm";
 import Carears from "./components/Carears";
 import TeamManagement from "./components/admin/TeamManagement";
 import App from "./components/admin/Appstore";
+import { Tooltip } from "@mui/material";
+import Pricing from "./components/admin/Pos"
 
 const Adminapp = () => {
   const [activePage, setActivePage] = useState("dashboard");
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [compactSidebar, setCompactSidebar] = useState(false);
+
+  const menuItems = [
+    { page: "dashboard", icon: FaTachometerAlt, label: "Dashboard" },
+    { page: "testimonials", icon: FaStar, label: "Testimonials" },
+    { page: "satisfiedClients", icon: FaUsers, label: "Satisfied Clients" },
+    { page: "team", icon: FaUsers, label: "Team" },
+    { page: "pricing", icon: FaDollarSign, label: "Pricing" },
+    { page: "blog", icon: FaBlog, label: "Blog" },
+    { page: "App", icon: FaAppStore, label: "App" },
+    { page: "getStarted", icon: FaRocket, label: "Get Started" },
+    { page: "home", icon: FaHome, label: "Home" },
+  ];
 
   const renderPage = () => {
     switch (activePage) {
@@ -29,17 +43,17 @@ const Adminapp = () => {
       case "testimonials":
         return <TestimonialsManager />;
       case "satisfiedClients":
-        return <h1 className="text-center text-2xl mt-10">Welcome to Satisfied Clients</h1>;
+        return <h1 className="text-center text-2xl mt-10">Satisfied Clients</h1>;
       case "team":
         return <TeamManagement />;
       case "pricing":
-        return <h1 className="text-center text-2xl mt-10">Welcome to Pricing</h1>;
+        return <Pricing />; 
       case "blog":
-        return <h1 className="text-center text-2xl mt-10">Welcome to Blog</h1>;
+        return <h1 className="text-center text-2xl mt-10">Blog</h1>;
       case "App":
         return <App />;
       case "getStarted":
-        return <h1 className="text-center text-2xl mt-10">Welcome to Get Started</h1>;
+        return <h1 className="text-center text-2xl mt-10">Get Started</h1>;
       case "home":
         return <Carears />;
       default:
@@ -48,68 +62,48 @@ const Adminapp = () => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 transform ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } ${compactSidebar ? "w-20" : "w-64"} bg-[#005880] text-white transition-all duration-300 lg:translate-x-0`}
+        className={`fixed inset-y-0 left-0 bg-[#005880] text-white transition-all duration-300 shadow-lg ${
+          compactSidebar ? "w-20" : "w-64"
+        } lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <div className="p-4 flex items-center justify-between border-b border-blue-700">
-          <span className={`text-xl font-bold ${compactSidebar ? "hidden" : "block"}`}>Navigation</span>
-          <button
-            className="text-white focus:outline-none"
-            onClick={() => setCompactSidebar(!compactSidebar)}
-          >
-            {compactSidebar ? <FaArrowLeft /> : <FaTimes />}
+          <span className={`text-xl font-bold transition-all ${compactSidebar ? "hidden" : "block"}`}>Navigation</span>
+          <button className="text-white focus:outline-none" onClick={() => setCompactSidebar(!compactSidebar)}>
+            {compactSidebar ? <FaBars /> : <FaArrowLeft />}
           </button>
         </div>
-        <ul className="mt-4 space-y-1">
-          {/* Sidebar Menu Items */}
-          {[
-            { page: "dashboard", icon: FaTachometerAlt, label: "Dashboard" },
-            { page: "testimonials", icon: FaStar, label: "Testimonials" },
-            { page: "satisfiedClients", icon: FaUsers, label: "Satisfied Clients" },
-            { page: "team", icon: FaUsers, label: "Team" },
-            { page: "pricing", icon: FaDollarSign, label: "Pricing" },
-            { page: "blog", icon: FaBlog, label: "Blog" },
-            { page: "App", icon: FaAppStore, label: "App" },
-            { page: "getStarted", icon: FaRocket, label: "Get Started" },
-            { page: "home", icon: FaHome, label: "Home" },
-          ].map(({ page, icon: Icon, label }) => (
+
+        <ul className="mt-4 space-y-2">
+          {menuItems.map(({ page, icon: Icon, label }) => (
             <li
               key={page}
-              onClick={() => {
-                setActivePage(page);
-                if (!compactSidebar) setSidebarOpen(false);
-              }}
-              className={`p-3 cursor-pointer hover:bg-blue-700 ${
-                activePage === page ? "bg-blue-700" : ""
-              } flex items-center`}
+              onClick={() => setActivePage(page)}
+              className={`p-3 flex items-center cursor-pointer transition-all rounded-lg ${
+                activePage === page ? "bg-blue-700" : "hover:bg-blue-600"
+              }`}
             >
-              <Icon className="inline-block mr-2" />
-              <span className={compactSidebar ? "hidden" : "block"}>{label}</span>
+              <Tooltip title={compactSidebar ? label : ""} placement="right">
+                <Icon className="inline-block mr-3 text-lg" />
+              </Tooltip>
+              <span className={`${compactSidebar ? "hidden" : "block"} transition-all`}>{label}</span>
             </li>
           ))}
         </ul>
       </div>
 
-      {/* Sidebar Toggle Button (Hidden on mobile) */}
+      {/* Sidebar Toggle Button (Mobile) */}
       <button
         className="lg:hidden fixed top-4 left-4 bg-[#005880] text-white p-2 rounded-md focus:outline-none"
         onClick={() => setSidebarOpen(!sidebarOpen)}
-        style={{ display: sidebarOpen ? 'none' : 'block' }} // Hide on mobile when sidebar is open
       >
         <FaBars />
       </button>
 
       {/* Main Content */}
-      <div
-        className={`flex-grow bg-gray-100 transition-all duration-300 ${
-          sidebarOpen && !compactSidebar ? "ml-64" : compactSidebar ? "ml-20" : "ml-0"
-        } p-4`}
-        style={{ marginTop: "60px" }} 
-      >
+      <div className={`flex-grow transition-all duration-300 p-6 ${sidebarOpen ? (compactSidebar ? "ml-20" : "ml-64") : "ml-0"}`}>
         {renderPage()}
       </div>
     </div>

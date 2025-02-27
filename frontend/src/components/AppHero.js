@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaMobileAlt, FaCode, FaRocket } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import './ServiceHero.css';
-import Hero from "../assets/videos/853919-hd_1920_1080_25fps.mp4"
+import Hero from "../assets/videos/Welcome to.mp4"
 const floatingAnimation = {
   initial: { y: 0 },
   animate: {
@@ -17,8 +17,7 @@ const floatingAnimation = {
 };
 
 const ServiceHero = () => {
-  const navigate = useNavigate(); // Declare navigate for routing
-
+  const navigate = useNavigate(); 
   const handleButtonClick = () => {
     // Scroll to the top of the page
     window.scrollTo({
@@ -80,7 +79,7 @@ const ServiceHero = () => {
                   <source src={Hero} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-                <motion.div className="floating-icon icon1">
+                {/* <motion.div className="floating-icon icon1">
                   <FaMobileAlt />
                 </motion.div>
                 <motion.div className="floating-icon icon2">
@@ -88,7 +87,7 @@ const ServiceHero = () => {
                 </motion.div>
                 <motion.div className="floating-icon icon3">
                   <FaRocket />
-                </motion.div>
+                </motion.div> */}
               </div>
             </div>
           </motion.div>

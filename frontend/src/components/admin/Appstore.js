@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import Swal from "sweetalert2";
 import imageCompression from "browser-image-compression";
+import { backEndURL } from "../../Backendurl";
 
-const BACKEND_URL = "http://localhost:3001/api/app"; // Change this if hosted elsewhere
+const BACKEND_URL = `${backEndURL}/api/app`; // Change this if hosted elsewhere
 
 const CardManager = () => {
   const [cards, setCards] = useState([]);
