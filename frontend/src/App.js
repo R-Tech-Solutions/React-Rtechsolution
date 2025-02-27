@@ -92,7 +92,7 @@ function App() {
           <Route path="/services/networking" element={<Networking />} />
           <Route path="/services/getstarted" element={<Getstarted />} />
           <Route path="/Portfolio" element={<Portfolio />} />
-          <Route path="/ServiceBarWithDetailedCards" element={<ServiceBarWithDetailedCards />} />
+          <Route path="/Pricing" element={<ServiceBarWithDetailedCards />} />
           <Route path="/Getstarted" element={<Getstarted />} />
           <Route path="/TestimonialForm" element={<TestimonialForm />} />
           <Route path="/Adminapp" element={<ProtectedRoute><Adminapp /></ProtectedRoute>} />
