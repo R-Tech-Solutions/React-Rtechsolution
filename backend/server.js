@@ -40,7 +40,9 @@ const contactRoutes = require('./routes/contactRoutes');
 const getStartedRoutes = require('./routes/getStartedRoutes');
 const applyRoutes = require('./routes/applyRoutes');
 const appAdminRoutes = require("./routes/AppAdminRoutes");
+const pospricingRoutes = require('./routes/posPricingRoutes');
 
+app.use(pospricingRoutes);
 app.use("/api/app", appAdminRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api', getStartedRoutes);
