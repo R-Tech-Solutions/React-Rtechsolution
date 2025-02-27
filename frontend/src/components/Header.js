@@ -143,7 +143,7 @@ const Header = () => {
             Home
           </Link>
           <Link
-            to="/ServiceBarWithDetailedCards"
+            to="/Pricing"
             className="text-sm font-medium hover:text-primary"
           >
             Pricing
@@ -211,7 +211,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  to="/ServiceBarWithDetailedCards"
+                  to="/Pricing"
                   className="flex items-center space-x-4 px-6 py-3 hover:text-primary transition-colors"
                   onClick={closeSidebar}
                 >
